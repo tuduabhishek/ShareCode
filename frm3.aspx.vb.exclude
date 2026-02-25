@@ -1,0 +1,132 @@
+﻿Imports System.Data.OracleClient
+Imports System.Data
+Partial Class frm3
+    Inherits System.Web.UI.Page
+    Dim conHrps As New OracleConnection(ConfigurationManager.ConnectionStrings("MYhrps").ConnectionString)
+    Dim dtls As DataTable
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Not Page.IsPostBack Then
+            Session("USER_ID") = "162410"
+            bindPendingRecord()
+        End If
+    End Sub
+    Protected Sub bindDetl()
+        Try
+            'lblRecipientNm.Text = ""
+            'lblRecipientNm1.Text = ""
+            'lblRecipientNm3.Text = ""
+            'lblRecipientNm4.Text = ""
+            'Dim qry As New OracleCommand()
+            'qry.CommandText = "select SS_NAME from t_survey_status where SS_PNO='162410' "
+            'Dim dt = getRecordInDt(qry, conHrps)
+            'If dt.Rows.Count > 0 Then
+            '    lblRecipientNm.Text = dt.Rows(0)("SS_NAME").ToString
+            '    lblRecipientNm1.Text = lblRecipientNm.Text
+            '    lblRecipientNm3.Text = lblRecipientNm.Text
+            '    lblRecipientNm4.Text = lblRecipientNm.Text
+            'End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Public Sub bindPendingRecord()
+        Try
+
+            Dim qry As New OracleCommand()
+            Dim pno = Session("USER_ID").ToString()
+            qry.CommandText = "select ss_asses_pno,ema_ename,ema_desgn_desc,ema_dept_desc,'Pending' status from tips.t_empl_all, t_survey_status "
+            qry.CommandText += "where ss_asses_pno=ema_perno and nvl(ss_wfl_status,'0')<>'3' and SS_PNO='" & pno & "'"
+            Dim dt = getRecordInDt(qry, conHrps)
+
+            If dt.Rows.Count > 0 Then
+                gvPending.DataSource = dt
+                gvPending.DataBind()
+            Else
+                gvPending.DataSource = Nothing
+                gvPending.DataBind()
+
+            End If
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Public Function getRecordInDt(ByVal cmd As OracleCommand, ByVal cn As OracleConnection) As DataTable
+        Dim dt As New DataTable()
+        Try
+            If cn.State = ConnectionState.Closed Then
+                cn.Open()
+            End If
+            Dim da As New OracleDataAdapter(cmd.CommandText, cn)
+            da.Fill(dt)
+        Catch ex As Exception
+        Finally
+            If cn.State = ConnectionState.Open Then
+                cn.Close()
+            End If
+        End Try
+        Return dt
+    End Function
+    Protected Sub gvPending_RowCommand(sender As Object, e As GridViewCommandEventArgs)
+        Try
+            lblRateNm.Text = String.Empty
+            txtAns1.Text = String.Empty
+            txtAns2.Text = String.Empty
+            lblRecipientNm1.Text = String.Empty
+            lblRecipientNm3.Text = String.Empty
+            lblRecipientNm4.Text = String.Empty
+            rblQ1a.SelectedValue = "1"
+            rblQ1b.SelectedValue = "1"
+            rblQ1c.SelectedValue = "1"
+            rblQ1d.SelectedValue = "1"
+            If e.CommandName = "select" Then
+                Dim rowIndex As Integer = Convert.ToInt32(e.CommandArgument)
+                Dim row As GridViewRow = gvPending.Rows(rowIndex)
+
+                Dim lbl_name As String = ""
+                Dim lbl_asses_pno As String = ""
+                lbl_name = TryCast(row.FindControl("lnlname"), Label).Text
+                lbl_asses_pno = TryCast(row.FindControl("lblpno"), Label).Text
+                Session("AssesPNo") = lbl_asses_pno.ToString
+                lblRateNm.Text = lbl_name.ToString()
+                lblRecipientNm1.Text = lbl_name.ToString()
+                lblRecipientNm3.Text = lbl_name.ToString()
+                lblRecipientNm4.Text = lbl_name.ToString()
+                pnl.Visible = True
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Protected Sub btn_submit_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn_submit.Click
+        UpdateFeedbackData(Session("AssesPno"), rblQ1a.SelectedValue.ToString, rblQ1b.SelectedValue.ToString, rblQ1c.SelectedValue.ToString, rblQ1d.SelectedValue.ToString, txtAns1.Text.Trim().ToString, txtAns2.Text.Trim().ToString)
+    End Sub
+    Public Sub UpdateFeedbackData(ByVal pno As String, ByVal Q1a As String, ByVal Q1b As String, ByVal Q1c As String, ByVal Q1d As String, ByVal Q2A As String, ByVal Q2B As String)
+        Try
+            Dim OrgStr As String = String.Empty
+
+            If pno = "" Then
+                pno = ID
+            End If
+            OrgStr = "update T_SURVEY_STATUS set SS_Q1_A='" & Q1a.ToString & "',SS_Q1_B='" & Q1b.ToString & "',SS_Q1_C='" & Q1c.ToString & "',SS_Q1_D='" & Q1d.ToString & "',SS_Q2_A='" & Q2A.ToString & "',SS_Q2_B='" & Q2B.ToString & "',SS_WFL_STATUS='3' "
+            OrgStr += " WHERE SS_PNO='" & Session("USER_ID").ToString() & "' AND SS_ASSES_PNO='" & pno.ToString() & "' "
+
+            If conHrps.State = ConnectionState.Closed Then
+                conHrps.Open()
+            End If
+
+            Dim comnd As New OracleCommand(OrgStr, conHrps)
+            comnd.ExecuteNonQuery()
+            ScriptManager.RegisterStartupScript(Me.Page, GetType(String), "Savedtls", "info('Record submitted successfully','','success');", True)
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+
+        Finally
+            If conHrps.State = ConnectionState.Open Then
+                conHrps.Close()
+            End If
+        End Try
+
+    End Sub
+End Class

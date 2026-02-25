@@ -1,0 +1,1080 @@
+﻿Imports System.Web.Services
+Imports System.Data.OracleClient
+Imports System.Data
+Partial Class SCPU004
+    Inherits System.Web.UI.Page
+
+    Dim conHrps As New OracleConnection(ConfigurationManager.ConnectionStrings("MYhrps").ConnectionString)
+    Dim dtls As DataTable
+    Dim dtls1 As DataTable
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        If Not Page.IsPostBack Then
+            If Request.QueryString("pno") <> Nothing Then
+                hdfnchk.Value = "0"
+                btnapprove.Visible = True
+                btnreject.Visible = True
+                btnreturn.Visible = True
+                lbview.Visible = False
+                DispGrd1()
+                PopDroupdown()
+
+            Else
+                Dim msg As String = String.Empty
+                msg = ""“Over the next 5-10 years, we aim to be the most valuable and respected steel company globally."
+                msg += " The change that we need to focus on is not just one of business processes, but one of cultural change. "
+                msg += "In order to bring this cultural change, it is important to focus on design and implement a new PMS process "
+                msg += " which enables such behaviours at workplace. Thus, with this in mind it has been decided to design and implement "
+                msg += "a 360-degree assessment which will form a part of the new PMS process”""
+                Lblmessage.Text = msg
+                ScriptManager.RegisterStartupScript(Me.Page, GetType(String), "infomodal", "showModalDiv('#divalert');", True)
+
+                'chkApproval()
+                hdfnchk.Value = "1"
+                btnapprove.Visible = False
+                btnreject.Visible = False
+                btnreturn.Visible = False
+                btnSubmit.Visible = True
+                PopDroupdown()
+                DispSelf()
+
+                DispGrd("")
+                enableControl()
+            End If
+
+
+        End If
+
+    End Sub
+    Public Function SimpleCrypt(ByVal Text As String) As String
+
+        Dim strTempChar As String = "", i As Integer
+        For i = 1 To Text.Length
+            If Asc(Mid$(Text, i, 1)) < 128 Then
+                strTempChar = CType(Asc(Mid$(Text, i, 1)) + 128, String)
+            ElseIf Asc(Mid$(Text, i, 1)) > 128 Then
+                strTempChar = CType(Asc(Mid$(Text, i, 1)) - 128, String)
+            End If
+            Mid$(Text, i, 1) = Chr(CType(strTempChar, Integer))
+        Next i
+        Return Text
+
+    End Function
+
+#Region "GenericMessage"
+    ''' <summary>
+    ''' Method to show the message created during operations on the form.
+    ''' </summary>
+    ''' <param name="alertType"></param>
+    ''' <param name="Message"></param>
+    ''' <remarks></remarks>
+    Public Sub ShowGenericMessageModal(ByVal alertType As CommonConstants.AlertType, ByVal Message As String)
+        ScriptManager.RegisterStartupScript(Me, Me.GetType, "KeyGenericMessageModal", String.Format("showGenericMessageModal('{0}','{1}')", alertType, Message), True)
+    End Sub
+
+#End Region
+
+    Protected Sub btnCreateAwardee_Click(ByVal sender As Object, ByVal e As EventArgs)
+
+        Try
+            Dim role As String = String.Empty
+            Dim pno As String = String.Empty
+            Dim name As String = String.Empty
+            Dim desg As String = String.Empty
+            Dim dept As String = String.Empty
+            Dim email As String = String.Empty
+
+            role = ddlrole.SelectedValue.ToString()
+            pno = txtCouponNo.Text.Split("(")(1).TrimEnd(")").ToString()
+            name = txtCouponNo.Text.Split("(")(0).ToString()
+            desg = txtPersonalNo.Text.Trim()
+            dept = txtorg.Text.Trim()
+            email = txtemail.Text.Trim()
+            SaveData(role, pno, name, desg, dept, email, "ORG", "SE")
+            DispGrd(role)
+            upPolicy.Update()
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "openModel", "showmodalAddSabashAwardee();", True)
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Public Sub SaveData(ByVal role As String, ByVal pno As String, ByVal name As String, ByVal desg As String, ByVal org As String, ByVal email As String, ByVal orgtype As String, ByVal status As String)
+
+        Try
+            Dim OrgStr As String = String.Empty
+            Dim id = getRefNo()
+
+            If pno = "" Then
+                pno = id
+            End If
+            OrgStr = "insert into T_SURVEY_STATUS (SS_CATEG,SS_ID,SS_PNO,SS_NAME,SS_DESG,SS_DEPT,SS_EMAIL,SS_STATUS,SS_TAG,SS_CRT_BY,SS_CRT_DT, "
+            OrgStr += " SS_DEL_TAG,SS_TYPE,ss_year,SS_ASSES_PNO) values ('" & role & "', '" & id & "','" & pno & "','" & name & "','" & Replace(desg, "'", "''") & "','" & Replace(org, "'", "''") & "','" & email & "','" & status & "','N', "
+            OrgStr += " '" & Session("USER_ID").ToString() & "', sysdate,'N','" & orgtype & "','" & DateTime.Now.Year & "','" & Session("USER_ID").ToString() & "')"
+
+            If conHrps.State = ConnectionState.Closed Then
+                conHrps.Open()
+            End If
+
+            Dim comnd As New OracleCommand(OrgStr, conHrps)
+            comnd.ExecuteNonQuery()
+            Clear()
+            If Request.QueryString("pno") <> Nothing Then
+                Dim sspno = SimpleCrypt(Request.QueryString("pno"))
+                Dim c As New OracleCommand("update t_survey_status set SS_ASSES_PNO ='" & sspno & "' , SS_TAG='SU',SS_APPROVER ='" & Session("USER_ID").ToString() & "' where SS_PNO ='" & id & "'", conHrps)
+                c.ExecuteNonQuery()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+
+        Finally
+            If conHrps.State = ConnectionState.Open Then
+                conHrps.Close()
+            End If
+        End Try
+
+    End Sub
+
+    Public Sub UpdateData(id As String, tag As String)
+        Try
+            Dim query As String = String.Empty
+            query = "update t_survey_status set SS_STATUS ='" & tag & "' where SS_ID='" & id & "'"
+            If conHrps.State = ConnectionState.Closed Then
+                conHrps.Open()
+            End If
+            Dim comnd As New OracleCommand(query, conHrps)
+            comnd.ExecuteNonQuery()
+        Catch ex As Exception
+        Finally
+            If conHrps.State = ConnectionState.Open Then
+                conHrps.Close()
+            End If
+        End Try
+    End Sub
+
+    Public Sub UpdateApprover(approver As String, pno As String)
+        Try
+            Dim query As String = String.Empty
+            query = "update t_survey_status set SS_APPROVER ='" & approver & "' where SS_CRT_BY='" & pno & "' "
+            If conHrps.State = ConnectionState.Closed Then
+                conHrps.Open()
+            End If
+            Dim comnd As New OracleCommand(query, conHrps)
+            comnd.ExecuteNonQuery()
+        Catch ex As Exception
+        Finally
+            If conHrps.State = ConnectionState.Open Then
+                conHrps.Close()
+            End If
+        End Try
+    End Sub
+    Public Sub Clear()
+        txtCouponNo.Text = ""
+        txtPersonalNo.Text = ""
+        txtorg.Text = ""
+        txtemail.Text = ""
+        txtnonname.Text = ""
+        txtnonorg.Text = ""
+        txtnonpno.Text = ""
+        txtnonemail.Text = ""
+    End Sub
+
+    Public Function getRefNo() As String
+        Try
+            Dim strRef As String = String.Empty
+            Dim refno As String = String.Empty
+            strRef = " select MAX(substr(SS_ID,3,5)) SS_ID from T_SURVEY_STATUS where SS_ID like 'SR%' "
+            Dim mycommand As OracleCommand
+            If conHrps.State = ConnectionState.Closed Then
+                conHrps.Open()
+            End If
+
+            mycommand = New OracleCommand(strRef, conHrps)
+
+            Dim result As Object = mycommand.ExecuteScalar
+
+            If IsDBNull(result) Then
+                refno = "1"
+            Else
+                Dim rs = result + 1
+                refno = CStr(rs)
+            End If
+
+            refno = refno.PadLeft(5, "0")
+            refno = "SR" + refno
+
+            Return refno
+        Catch ex As Exception
+        Finally
+            If conHrps.State = ConnectionState.Open Then
+                conHrps.Close()
+            End If
+        End Try
+    End Function
+
+    Public Sub PopDroupdown()
+        Try
+            Dim qry As String = String.Empty
+            qry = "select IRC_CODE,IRC_DESC from t_ir_codes where irc_type='360RL' and IRC_VALID_TAG='A' order by 2"
+
+            Dim adp As New OracleDataAdapter(qry, conHrps)
+            Dim dt As New DataTable()
+            adp.Fill(dt)
+            If dt.Rows.Count > 0 Then
+                ddlrole.DataTextField = "IRC_DESC"
+                ddlrole.DataValueField = "IRC_CODE"
+                ddlrole.DataSource = dt
+                ddlrole.DataBind()
+
+                ddlrole.Items.Insert(0, "Select assessors category")
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+
+    Public Function getRecordInDt(ByVal cmd As OracleCommand, ByVal cn As OracleConnection) As DataTable
+        Dim dt As New DataTable()
+        Try
+            If cn.State = ConnectionState.Closed Then
+                cn.Open()
+            End If
+            Dim da As New OracleDataAdapter(cmd.CommandText, cn)
+            da.Fill(dt)
+
+        Catch ex As Exception
+        Finally
+            If cn.State = ConnectionState.Open Then
+                cn.Close()
+            End If
+        End Try
+        Return dt
+    End Function
+
+    Protected Sub ddlrole_SelectedIndexChanged(sender As Object, e As EventArgs)
+        Try
+            Dim comn As New OracleCommand()
+            comn.CommandText = "select IRC_CODE, substr(IRC_DESC,'0','1')""Min"",substr(IRC_DESC,'3','1')""Max"" from t_ir_codes where irc_type='360VL'"
+            comn.CommandText += " and irc_code ='" & ddlrole.SelectedValue.ToString() & "'"
+            Dim dt = getRecordInDt(comn, conHrps)
+            If dt.Rows.Count > 0 Then
+                ltminmax.Visible = True
+                ' lblminmax.Text = "Min " & dt.Rows(0)(1).ToString() & "  Max " & dt.Rows(0)(2).ToString()
+                ltminmax.Text = "<b>Min </b>" & dt.Rows(0)(1).ToString() & " <b> -  Max </B>" & dt.Rows(0)(2).ToString()
+            Else
+                ltminmax.Text = "<b>Min </b>" & " 0 " & " <b> Max </B>" & "0"
+                ltminmax.Visible = False
+            End If
+            If ddlrole.SelectedValue = "MANGR" Then
+                lbNonOrg.Visible = False
+                lbOrg.Visible = False
+                If hdfnchk.Value = "1" Then
+                    DispManager()
+                    DispGrd(ddlrole.SelectedValue.ToString)
+                    btnSubmit.Visible = False
+                End If
+
+                btnAssign.Visible = False
+
+            ElseIf ddlrole.SelectedValue = "PEER" Then
+                lbNonOrg.Visible = True
+                lbOrg.Visible = True
+                If hdfnchk.Value = "1" Then
+                    DispPeer()
+                    DispGrd(ddlrole.SelectedValue.ToString)
+                    btnSubmit.Visible = False
+                End If
+
+                btnAssign.Visible = True
+
+                lbNonOrg.Visible = False
+            ElseIf ddlrole.SelectedValue = "ROPT" Then
+                lbNonOrg.Visible = False
+                lbOrg.Visible = False
+                If hdfnchk.Value = "1" Then
+                    DispRepoties()
+                    DispGrd(ddlrole.SelectedValue.ToString)
+                    btnSubmit.Visible = False
+                End If
+
+                btnAssign.Visible = False
+
+            ElseIf ddlrole.SelectedValue = "INTSH" Then
+                lbNonOrg.Visible = True
+                lbOrg.Visible = True
+                If hdfnchk.Value = "1" Then
+                    DispSelf()
+                    DispGrd(ddlrole.SelectedValue.ToString)
+                    btnSubmit.Visible = False
+                End If
+                btnAssign.Visible = True
+            Else
+                lbOrg.Visible = False
+                lbNonOrg.Visible = False
+                gvself.DataSource = Nothing
+                gvself.DataBind()
+                DispGrd("")
+                btnAssign.Visible = False
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Public Sub DispSelf()
+        Try
+            Dim strself As New OracleCommand()
+
+
+            strself.CommandText = "select ema_perno, ema_ename, EMA_EMPL_SGRADE EMA_EMPL_PGRADE,EMA_DESGN_DESC,EMA_DEPT_DESC,EMA_EMAIL_ID from tips.t_empl_all where "
+            strself.CommandText += " ema_perno='" & Session("USER_ID").ToString() & "' and ema_disch_dt is null  "
+            Dim dt = getRecordInDt(strself, conHrps)
+
+            If dt.Rows.Count > 0 Then
+                gvself.DataSource = dt
+                gvself.DataBind()
+                gvself.Columns(6).Visible = False
+                GvCateg.Columns(8).Visible = False
+            Else
+                gvself.DataSource = Nothing
+                gvself.DataBind()
+            End If
+
+            strself = New OracleCommand()
+            strself.CommandText = "select * from t_survey_status where SS_PNO='" & Session("USER_ID").ToString() & "'"
+            Dim dtl = getRecordInDt(strself, conHrps)
+            If dtl.Rows.Count > 0 Then
+
+            Else
+                SaveData("Self", dt.Rows(0)("ema_perno").ToString(), dt.Rows(0)("ema_ename").ToString(), dt.Rows(0)("EMA_DESGN_DESC").ToString(), dt.Rows(0)("EMA_DEPT_DESC").ToString(), dt.Rows(0)("EMA_EMAIL_ID").ToString(), "ORG", "SE")
+            End If
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Public Sub DispManager()
+        Try
+            Dim strself As New OracleCommand()
+
+            strself.CommandText = "select ema_perno, ema_ename,EMA_EMPL_SGRADE EMA_EMPL_PGRADE,EMA_DESGN_DESC,EMA_DEPT_DESC,EMA_EMAIL_ID from tips.t_empl_all where "
+            strself.CommandText += " ema_perno='" & Session("USER_ID").ToString() & "' and ema_disch_dt is null union "
+            strself.CommandText += " select b.ema_perno, b.ema_ename,b.EMA_EMPL_SGRADE EMA_EMPL_PGRADE,b.EMA_DESGN_DESC,b.EMA_DEPT_DESC,b.EMA_EMAIL_ID  "
+            strself.CommandText += " from tips.t_empl_all a,tips.t_empl_all b where b.ema_perno=a.EMA_REPORTING_TO_PNO and a.ema_perno='" & Session("USER_ID").ToString() & "' "
+            strself.CommandText += " union select b.ema_perno, b.ema_ename,b.EMA_EMPL_SGRADE EMA_EMPL_PGRADE,b.EMA_DESGN_DESC,b.EMA_DEPT_DESC,b.EMA_EMAIL_ID  "
+            strself.CommandText += " from tips.t_empl_all a,tips.t_empl_all b where b.ema_perno=a.EMA_PERS_EXEC_PNO and a.ema_perno='" & Session("USER_ID").ToString() & "' "
+            strself.CommandText += " union select b.ema_perno, b.ema_ename,b.EMA_EMPL_SGRADE EMA_EMPL_PGRADE,b.EMA_DESGN_DESC,b.EMA_DEPT_DESC,b.EMA_EMAIL_ID  "
+            strself.CommandText += " from tips.t_empl_all a,tips.t_empl_all b where b.ema_perno=a.EMA_DOTTED_PNO and a.ema_perno='" & Session("USER_ID").ToString() & "' "
+
+            Dim dt = getRecordInDt(strself, conHrps)
+
+            If dt.Rows.Count > 0 Then
+                gvself.DataSource = dt
+                gvself.DataBind()
+                gvself.Columns(6).Visible = False
+            Else
+                gvself.DataSource = Nothing
+                gvself.DataBind()
+            End If
+
+            For o = 0 To dt.Rows.Count - 1
+                strself = New OracleCommand()
+                strself.CommandText = "select * from t_survey_status  where SS_PNO ='" & dt.Rows(o)("ema_perno").ToString() & "'"
+                Dim dt1 = getRecordInDt(strself, conHrps)
+                If dt1.Rows.Count > 0 Then
+                Else
+                    SaveData(ddlrole.SelectedValue, dt.Rows(o)("ema_perno").ToString(), dt.Rows(o)("ema_ename").ToString(), dt.Rows(o)("EMA_DESGN_DESC").ToString(), dt.Rows(o)("EMA_DEPT_DESC").ToString(), dt.Rows(o)("EMA_EMAIL_ID").ToString(), "ORG", "SE")
+                End If
+            Next
+
+        Catch ex As Exception
+            ' MsgBox(ex.ToString())
+        End Try
+    End Sub
+
+    Public Sub DispPeer()
+        Try
+            Dim strself As New OracleCommand()
+            strself.CommandText += " select  ema_perno, ema_ename,EMA_EMPL_SGRADE EMA_EMPL_PGRADE,EMA_DESGN_DESC,EMA_DEPT_DESC,EMA_EMAIL_ID from tips.t_empl_all where ema_reporting_to_pno "
+            strself.CommandText += " =(select ema_reporting_to_pno from tips.t_empl_all where ema_perno='" & Session("USER_ID").ToString() & "') and ema_disch_dt is null "
+            strself.CommandText += " and EMA_EMPL_sGRADE in ('IL1','IL2') and ema_perno<>'" & Session("USER_ID").ToString() & "'"
+
+
+            Dim dt = getRecordInDt(strself, conHrps)
+
+            If dt.Rows.Count < 3 And dt.Rows.Count >= 0 Then
+                Dim str As New OracleCommand
+                str.CommandText += " select  ema_perno, ema_ename,EMA_EMPL_SGRADE EMA_EMPL_PGRADE,EMA_DESGN_DESC,EMA_DEPT_DESC,EMA_EMAIL_ID from tips.t_empl_all where ema_reporting_to_pno "
+                str.CommandText += " =(select ema_reporting_to_pno from tips.t_empl_all where ema_perno='" & Session("USER_ID").ToString() & "') and ema_disch_dt is null "
+                str.CommandText += " and EMA_emp_class in ('1','2') and ema_perno<>'" & Session("USER_ID").ToString() & "'"
+
+                Dim dt1 = getRecordInDt(str, conHrps)
+
+                If dt1.Rows.Count < 3 And dt1.Rows.Count >= 0 Then
+                    gvself.DataSource = dt1
+                    gvself.DataBind()
+                    GetSelected(dt1)
+                    gvself.Columns(6).Visible = True
+                    GvCateg.Columns(8).Visible = True
+                ElseIf dt1.Rows.Count >= 3 Then
+                    gvself.DataSource = dt1
+                    gvself.DataBind()
+                    GetSelected(dt1)
+                    gvself.Columns(6).Visible = True
+                    GvCateg.Columns(8).Visible = True
+                Else
+                    gvself.DataSource = Nothing
+                    gvself.DataBind()
+                End If
+            ElseIf dt.Rows.Count >= 3 Then
+                gvself.DataSource = dt
+                gvself.DataBind()
+                GetSelected(dt)
+                gvself.Columns(6).Visible = True
+                GvCateg.Columns(8).Visible = True
+            Else
+                gvself.DataSource = Nothing
+                gvself.DataBind()
+            End If
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Public Sub DispRepoties()
+        Try
+            Dim strself As New OracleCommand()
+            'strself.CommandText = "select ema_perno, ema_ename,EMA_EMPL_SGRADE EMA_EMPL_PGRADE,EMA_DESGN_DESC,EMA_DEPT_DESC,EMA_EMAIL_ID from tips.t_empl_all where "
+            'strself.CommandText += " ema_perno='" & Session("USER_ID").ToString() & "' and ema_disch_dt is null union all "
+            strself.CommandText += " select ema_perno, ema_ename,EMA_EMPL_SGRADE EMA_EMPL_PGRADE,EMA_DESGN_DESC,EMA_DEPT_DESC,EMA_EMAIL_ID from tips.t_empl_all where ema_reporting_to_pno "
+            strself.CommandText += " = '" & Session("USER_ID").ToString() & "' and ema_disch_dt is null and EMA_EMPL_SGRADE  in ('IL2','IL3')"
+            'strself.CommandText += " and rownum <='" & lblminmax.Text.Substring(4, 1) & "'"
+            Dim dt = getRecordInDt(strself, conHrps)
+
+            If dt.Rows.Count >= 3 Then
+                gvself.DataSource = dt
+                gvself.DataBind()
+                gvself.Columns(6).Visible = False
+                GetSelected(dt)
+            ElseIf dt.Rows.Count < 3 Then
+                Dim strcond1 As New OracleCommand()
+                strcond1.CommandText += " select ema_perno, ema_ename,EMA_EMPL_SGRADE EMA_EMPL_PGRADE,EMA_DESGN_DESC,EMA_DEPT_DESC,EMA_EMAIL_ID from tips.t_empl_all where ema_reporting_to_pno "
+                strcond1.CommandText += " = '" & Session("USER_ID").ToString() & "' and ema_disch_dt is null and EMA_EMPL_SGRADE  in ('IL4')"
+                Dim dt1 = getRecordInDt(strcond1, conHrps)
+                If dt1.Rows.Count < 3 And dt1.Rows.Count >= 0 Then
+                    Dim strcond2 As New OracleCommand()
+                    strcond2.CommandText += " select ema_perno, ema_ename,EMA_EMPL_SGRADE EMA_EMPL_PGRADE,EMA_DESGN_DESC,EMA_DEPT_DESC,EMA_EMAIL_ID from tips.t_empl_all where ema_reporting_to_pno "
+                    strcond2.CommandText += " = '" & Session("USER_ID").ToString() & "' and ema_disch_dt is null and EMA_EMPL_SGRADE  in ('IL5', 'IL6')"
+                    Dim dt2 = getRecordInDt(strcond2, conHrps)
+                    If dt2.Rows.Count < 3 And dt2.Rows.Count >= 0 Then
+                        Dim strcond3 As New OracleCommand()
+                        strcond2.CommandText += " select ema_perno, ema_ename,EMA_EMPL_SGRADE EMA_EMPL_PGRADE,EMA_DESGN_DESC,EMA_DEPT_DESC,EMA_EMAIL_ID from tips.t_empl_all where ema_reporting_to_pno "
+                        strcond3.CommandText += " = '" & Session("USER_ID").ToString() & "' and ema_disch_dt is null and EMA_emp_class  in ('1', '2')"
+                        Dim dt3 = getRecordInDt(strcond3, conHrps)
+                        If dt3.Rows.Count < 3 And dt3.Rows.Count >= 0 Then
+                            gvself.DataSource = dt3
+                            gvself.DataBind()
+                            gvself.Columns(6).Visible = False
+                            GetSelected(dt3)
+                        ElseIf dt3.Rows.Count >= 3 Then
+                            gvself.DataSource = dt3
+                            gvself.DataBind()
+                            gvself.Columns(6).Visible = False
+                            GetSelected(dt3)
+                        Else
+                            gvself.DataSource = Nothing
+                            gvself.DataBind()
+                        End If
+                    ElseIf dt2.Rows.Count >= 3 Then
+                        gvself.DataSource = dt2
+                        gvself.DataBind()
+                        gvself.Columns(6).Visible = False
+                        GetSelected(dt2)
+                    Else
+                        gvself.DataSource = Nothing
+                        gvself.DataBind()
+                    End If
+                ElseIf dt1.Rows.Count >= 3 Then
+                    gvself.DataSource = dt1
+                    gvself.DataBind()
+                    gvself.Columns(6).Visible = False
+                    GetSelected(dt1)
+                Else
+                    gvself.DataSource = Nothing
+                    gvself.DataBind()
+                End If
+            Else
+                gvself.DataSource = Nothing
+                gvself.DataBind()
+            End If
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    <System.Web.Script.Services.ScriptMethod(),
+  System.Web.Services.WebMethod()>
+    Public Shared Function SearchPrefixesForApprover(ByVal prefixText As String, ByVal count As Integer) As List(Of String)
+        Dim ob As New SCPU004
+        Try
+
+            Dim cmd As New OracleCommand
+
+            cmd.CommandType = Data.CommandType.Text
+
+            cmd.CommandText = " select ema_ename ||'('|| ema_perno ||')' EName from tips.t_empl_all where ema_perno like '%" & prefixText & "%' or upper(ema_ename) like "
+            cmd.CommandText += " '%" & prefixText.ToUpper & "%'"
+
+
+            ob.conHrps.Open()
+
+            cmd.Connection = ob.conHrps
+            Dim prefixes As List(Of String) = New List(Of String)
+            Dim sdr As OracleDataReader = cmd.ExecuteReader
+            While sdr.Read
+                prefixes.Add(sdr("EName").ToString)
+            End While
+
+
+
+            Return prefixes
+        Catch ex As Exception
+
+            Return Nothing
+
+        Finally
+
+            ob.conHrps.Close()
+
+        End Try
+
+    End Function
+
+    Protected Sub txtCouponNo_TextChanged(sender As Object, e As EventArgs)
+        Try
+            Dim pno = txtCouponNo.Text.Split("(")(1).TrimEnd(")")
+            Dim strself As New OracleCommand()
+            strself.CommandText = "select ema_perno, ema_ename,EMA_EMPL_SGRADE EMA_EMPL_PGRADE,EMA_DESGN_DESC,EMA_DEPT_DESC,EMA_EMAIL_ID from tips.t_empl_all where "
+            strself.CommandText += " ema_perno='" & pno.ToString() & "' and ema_disch_dt is null "
+            Dim dt = getRecordInDt(strself, conHrps)
+
+            If dt.Rows.Count > 0 Then
+                txtPersonalNo.Text = dt.Rows(0)("EMA_DESGN_DESC").ToString()
+                txtemail.Text = dt.Rows(0)("EMA_EMAIL_ID").ToString()
+                txtorg.Text = dt.Rows(0)("EMA_DEPT_DESC").ToString()
+                txtemail.ToolTip = dt.Rows(0)("EMA_EMAIL_ID").ToString()
+                txtorg.ToolTip = dt.Rows(0)("EMA_DEPT_DESC").ToString()
+                txtPersonalNo.ToolTip = dt.Rows(0)("EMA_DESGN_DESC").ToString()
+                txtCouponNo.ToolTip = txtCouponNo.Text
+            End If
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Protected Sub lbOrg_Click(sender As Object, e As EventArgs)
+        Try
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "openModel", "showmodalAddSabashAwardee();", True)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Protected Sub lbNonOrg_Click(sender As Object, e As EventArgs)
+        Try
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "openMode1", "showmodalAddSabashAwardee1();", True)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Protected Sub Button1_Click(sender As Object, e As EventArgs)
+        Try
+            Dim role As String = String.Empty
+            Dim pno As String = String.Empty
+            Dim name As String = String.Empty
+            Dim desg As String = String.Empty
+            Dim dept As String = String.Empty
+            Dim email As String = String.Empty
+
+            role = ddlrole.SelectedValue.ToString()
+            pno = ""
+            name = txtnonpno.Text.Trim()
+            desg = txtnonname.Text.Trim()
+            dept = txtnonorg.Text.Trim()
+            email = txtnonemail.Text.Trim()
+            SaveData(role, pno, name, desg, dept, email, "NORG", "SE")
+
+            DispGrd(role)
+            upPolicy.Update()
+            ScriptManager.RegisterStartupScript(Me, Me.GetType(), "openMode1", "showmodalAddSabashAwardee1();", True)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Protected Sub btnAssign_Click(sender As Object, e As EventArgs) Handles btnAssign.Click
+        Try
+            For i As Integer = 0 To GvCateg.Rows.Count - 1
+
+                Dim pno As String = String.Empty
+                Dim id As String = String.Empty
+                Dim name As String = String.Empty
+                Dim desg As String = String.Empty
+                Dim Org As String = String.Empty
+                Dim email As String = String.Empty
+                Dim Type As String = String.Empty
+
+                pno = CType(GvCateg.Rows(i).FindControl("lblpno"), Label).Text
+                id = CType(GvCateg.Rows(i).FindControl("hdfnid"), HiddenField).Value
+                name = CType(GvCateg.Rows(i).FindControl("lnlname"), Label).Text
+                desg = CType(GvCateg.Rows(i).FindControl("lbldesg"), Label).Text
+                Org = CType(GvCateg.Rows(i).FindControl("lbldept"), Label).Text
+                email = CType(GvCateg.Rows(i).FindControl("lblemail"), Label).Text
+
+                If CType(GvCateg.Rows(i).FindControl("chkseldsel"), CheckBox).Checked = True Then
+
+                    UpdateData(id, "SE")
+                Else
+
+                    UpdateData(id, "DS")
+                End If
+
+            Next
+
+            ShowGenericMessageModal(CommonConstants.AlertType.success, "Operation Done...!")
+        Catch ex As Exception
+            MsgBox(ex.ToString())
+        End Try
+    End Sub
+    Protected Sub lbview_Click(sender As Object, e As EventArgs)
+        Try
+            Response.Redirect("frm1.aspx", True)
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Protected Sub gvself_RowDataBound(sender As Object, e As GridViewRowEventArgs)
+
+        Try
+            Dim id = CType(e.Row.FindControl("hdfnid"), HiddenField)
+            Dim chk = CType(e.Row.FindControl("chkseldsel"), CheckBox)
+            Dim perno = CType(e.Row.FindControl("lblpno"), Label)
+
+            Dim comnd As New OracleCommand()
+            If perno.Text = "" Then
+                comnd.CommandText = " select *  from t_survey_status  where SS_STATUS='SE' and SS_ID='" & id.Value & "'"
+            Else
+                comnd.CommandText = " select *  from t_survey_status  where SS_STATUS='SE' and ss_pno='" & perno.Text & "'"
+            End If
+
+            Dim d = getRecordInDt(comnd, conHrps)
+
+            If d.Rows.Count > 0 Then
+                chk.Checked = True
+            Else
+                chk.Checked = False
+            End If
+
+
+        Catch ex As Exception
+            ' MsgBox(ex.ToString())
+        End Try
+
+    End Sub
+
+    Public Sub DispGrd(categ As String)
+        Try
+            Dim pno = Session("USER_ID").ToString()
+            Dim cmd As New OracleCommand
+
+            If categ <> "" Then
+
+                cmd.CommandText = " select SS_ID, SS_PNO ,SS_NAME,EMA_EMPL_SGRADE EMA_EMPL_PGRADE,SS_DESG,SS_DEPT,SS_EMAIL,IRC_DESC from tips.t_empl_all , t_survey_status, t_ir_codes where "
+                cmd.CommandText += " SS_PNO=ema_perno(+) and IRC_CODE = SS_CATEG and irc_type='360RL' and IRC_VALID_TAG='A' and SS_CATEG ='" & categ & "' "
+                cmd.CommandText += " and SS_CRT_BY ='" & pno & "' order by IRC_DESC"
+            Else
+                cmd.CommandText = " select SS_ID, SS_PNO ,SS_NAME,EMA_EMPL_SGRADE EMA_EMPL_PGRADE,SS_DESG,SS_DEPT,SS_EMAIL,IRC_DESC from tips.t_empl_all , t_survey_status, t_ir_codes where "
+                cmd.CommandText += " SS_PNO=ema_perno(+) and IRC_CODE = SS_CATEG and irc_type='360RL' and IRC_VALID_TAG='A'  and SS_CRT_BY ='" & pno & "' and SS_STATUS ='SE' "
+                cmd.CommandText += " union  select SS_ID, SS_PNO ,SS_NAME,EMA_EMPL_SGRADE EMA_EMPL_PGRADE,SS_DESG,SS_DEPT,SS_EMAIL,SS_CATEG IRC_DESC from  t_survey_status,tips.t_empl_all where "
+                cmd.CommandText += "  ema_perno = SS_PNO and  SS_PNO='" & pno & "'and SS_STATUS ='SE'  "
+                cmd.CommandText += " union  select SS_ID, SS_PNO ,SS_NAME,EMA_EMPL_SGRADE EMA_EMPL_PGRADE,SS_DESG,SS_DEPT,SS_EMAIL,SS_CATEG IRC_DESC from t_survey_status,tips.t_empl_all "
+                cmd.CommandText += " where  SS_PNO = ema_perno and SS_PNO='" & pno & "'and SS_STATUS ='SE' and SS_CATEG ='Self'  order by IRC_DESC"
+            End If
+
+            Dim dt = getRecordInDt(cmd, conHrps)
+            If dt.Rows.Count > 0 Then
+                GvCateg.DataSource = dt
+                GvCateg.DataBind()
+                GvCateg.Columns(0).Visible = False
+            Else
+                GvCateg.DataSource = Nothing
+                GvCateg.DataBind()
+            End If
+            If categ = "PEER" Or categ = "INTSH" Then
+                GvCateg.Columns(8).Visible = True
+            Else
+                GvCateg.Columns(8).Visible = False
+
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Public Sub DispGrd1()
+        Try
+            Dim pno = Session("USER_ID").ToString()
+            Dim cmd As New OracleCommand
+            Dim perno = SimpleCrypt(Request.QueryString("pno"))
+
+            cmd.CommandText = " select ss_id, SS_PNO ,SS_NAME,EMA_EMPL_SGRADE EMA_EMPL_PGRADE,SS_DESG,SS_DEPT,SS_EMAIL,IRC_DESC from tips.t_empl_all , t_survey_status, t_ir_codes where "
+            cmd.CommandText += " SS_PNO=ema_perno(+) and IRC_CODE = SS_CATEG and irc_type='360RL' and IRC_VALID_TAG='A'  "
+            cmd.CommandText += "And SS_APPROVER ='" & pno & "' and SS_TAG='SU' and SS_STATUS ='SE' and SS_ASSES_PNO='" & perno & "'"
+
+            Dim dt = getRecordInDt(cmd, conHrps)
+            If dt.Rows.Count > 0 Then
+                GvCateg.DataSource = dt
+                GvCateg.DataBind()
+                GvCateg.Columns(8).Visible = False
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Protected Sub lbselect_Click(sender As Object, e As EventArgs)
+        Try
+            Dim tmp As GridViewRow = CType(sender, LinkButton).Parent.Parent
+
+            Dim pno = CType(tmp.FindControl("lblpno"), Label).Text
+            Dim name = CType(tmp.FindControl("lnlname"), Label).Text
+            Dim grade = CType(tmp.FindControl("lbllevel"), Label).Text
+            Dim desg = CType(tmp.FindControl("lbldesg"), Label).Text
+            Dim dept = CType(tmp.FindControl("lbldept"), Label).Text
+            Dim email = CType(tmp.FindControl("lblemail"), Label).Text
+            Dim sel = CType(tmp.FindControl("lbselect"), LinkButton)
+
+            Dim qry As New OracleCommand()
+            qry.CommandText = " select  SS_STATUS  from t_survey_status where SS_PNO ='" & pno & "' and SS_CATEG ='" & ddlrole.SelectedValue & "'"
+            Dim dt = getRecordInDt(qry, conHrps)
+            If dt.Rows.Count > 0 Then
+                If dt.Rows(0)(0).ToString() = "SE" Then
+                    ShowGenericMessageModal(CommonConstants.AlertType.warning, "Participants already selected...!")
+                Else
+                    UpdateStatus(pno, "SE")
+                    ShowGenericMessageModal(CommonConstants.AlertType.success, "Selected...!")
+                End If
+
+            Else
+                SaveData(ddlrole.SelectedValue, pno, name, desg, Replace(dept, "'", "''"), email, "ORG", "SE")
+                DispGrd(ddlrole.SelectedValue)
+
+                ShowGenericMessageModal(CommonConstants.AlertType.success, "Selected...!")
+                ' sel.Text = "DeSelect"
+
+            End If
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Protected Sub btnSubmit_Click(sender As Object, e As EventArgs)
+        Try
+            If ChkValidation() Then
+                ShowGenericMessageModal(CommonConstants.AlertType.error, "Please select Minimum no of assessors in each category...!")
+                Exit Sub
+            End If
+            Dim comd As New OracleCommand()
+            Dim pno = Session("USER_ID").ToString()
+            comd.CommandText = " select EMA_PERS_EXEC_PNO from tips.t_empl_all where ema_perno='" & pno & "'"
+            Dim dt = getRecordInDt(comd, conHrps)
+            If dt.Rows.Count > 0 Then
+                UpdateApprover(dt.Rows(0)("EMA_PERS_EXEC_PNO").ToString, pno)
+            End If
+
+            Dim qry As String = String.Empty
+            qry = " update t_survey_status set SS_TAG ='SU' , SS_TAG_DT = sysdate where SS_STATUS ='SE' and SS_CRT_BY ='" & pno & "'"
+            If conHrps.State = ConnectionState.Closed Then
+                conHrps.Open()
+            End If
+
+            Dim cmd As New OracleCommand(qry, conHrps)
+            cmd.ExecuteNonQuery()
+            ShowGenericMessageModal(CommonConstants.AlertType.success, "Submitted for Approval...!")
+            btnSubmit.Enabled = True
+
+        Catch ex As Exception
+
+        Finally
+            If conHrps.State = ConnectionState.Open Then
+                conHrps.Close()
+            End If
+        End Try
+    End Sub
+
+    Public Sub enableControl()
+
+        Try
+            Dim pno = Session("USER_ID").ToString()
+            Dim cmd As New OracleCommand()
+            cmd.CommandText = " select * from t_survey_status where SS_ASSES_PNO ='" & pno & "' and SS_TAG ='SU' "
+            Dim d = getRecordInDt(cmd, conHrps)
+            If d.Rows.Count <= 0 Then
+            Else
+                lbview.Enabled = False
+                btnAssign.Enabled = False
+                btnSubmit.Enabled = False
+                Button1.Enabled = False
+                lbOrg.Enabled = False
+                lbNonOrg.Enabled = False
+                GvCateg.Columns(8).Visible = False
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+
+    Public Function ChKRole(user As String) As Boolean
+        Dim role As Boolean = False
+        Try
+            Dim qry As String = String.Empty
+
+            qry = "select * from t_survey_status  where SS_APPROVER='" & user & "'"
+            Dim cod As New OracleCommand()
+            cod.CommandText = qry
+            Dim dt = getRecordInDt(cod, conHrps)
+            If dt.Rows.Count > 0 Then
+                role = True
+            End If
+
+        Catch ex As Exception
+
+        End Try
+        Return role
+
+    End Function
+    Public Sub UpdateStatus(id As String, tag As String)
+        Try
+            Dim query As String = String.Empty
+            Dim pno = Session("USER_ID").ToString()
+            If id.StartsWith("SR") Then
+                query = "update t_survey_status set SS_STATUS ='" & tag & "' where SS_ID='" & id & "' and SS_CRT_BY ='" & pno & "'"
+            Else
+                query = "update t_survey_status set SS_STATUS ='" & tag & "' where SS_PNO='" & id & "' and SS_CRT_BY ='" & pno & "'"
+            End If
+
+
+            If conHrps.State = ConnectionState.Closed Then
+                conHrps.Open()
+            End If
+            Dim comnd As New OracleCommand(query, conHrps)
+            comnd.ExecuteNonQuery()
+        Catch ex As Exception
+        Finally
+            If conHrps.State = ConnectionState.Open Then
+                conHrps.Close()
+            End If
+        End Try
+    End Sub
+
+    Public Sub UpdateStatus1(id As String, tag As String)
+        Try
+            Dim query As String = String.Empty
+            Dim pno = Session("USER_ID").ToString()
+            query = "update t_survey_status set SS_APP_TAG ='" & tag & "', SS_APP_DT = sysdate ,SS_APP_BY='" & pno & "' where SS_PNO='" & id & "' "
+            query += " and SS_APPROVER ='" & pno & "'"
+            If conHrps.State = ConnectionState.Closed Then
+                conHrps.Open()
+            End If
+            Dim comnd As New OracleCommand(query, conHrps)
+            comnd.ExecuteNonQuery()
+        Catch ex As Exception
+        Finally
+            If conHrps.State = ConnectionState.Open Then
+                conHrps.Close()
+            End If
+        End Try
+    End Sub
+    Protected Sub btnreturn_Click(sender As Object, e As EventArgs)
+        Try
+            Dim c As Boolean = False
+            For i As Integer = 0 To GvCateg.Rows.Count
+                Dim chk = CType(GvCateg.Rows(i).FindControl("chkmgr"), CheckBox)
+                Dim pno = CType(GvCateg.Rows(i).FindControl("lblpno"), Label)
+                Dim id = CType(GvCateg.Rows(i).FindControl("hdfnid"), HiddenField)
+
+                If chk.Checked = True Then
+                    UpdateStatus1(id.Value, "RN")
+                    c = True
+                Else
+                    c = False
+                End If
+            Next
+
+            If c Then
+                ShowGenericMessageModal(CommonConstants.AlertType.success, "Selected person has been Returned...!")
+            Else
+                ShowGenericMessageModal(CommonConstants.AlertType.success, "Please check at least one person to Return...!")
+                Exit Sub
+            End If
+            DispGrd1()
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Protected Sub btnreject_Click(sender As Object, e As EventArgs)
+        Try
+            Dim c As Boolean = False
+            For i As Integer = 0 To GvCateg.Rows.Count
+                Dim chk = CType(GvCateg.Rows(i).FindControl("chkmgr"), CheckBox)
+                Dim pno = CType(GvCateg.Rows(i).FindControl("lblpno"), Label)
+                Dim id = CType(GvCateg.Rows(i).FindControl("hdfnid"), HiddenField)
+
+                If chk.Checked = True Then
+                    UpdateStatus1(id.Value, "RJ")
+                    c = True
+                Else
+                    c = False
+                End If
+            Next
+            If c Then
+                ShowGenericMessageModal(CommonConstants.AlertType.success, "Selected person has been Removed...!")
+            Else
+                ShowGenericMessageModal(CommonConstants.AlertType.success, "Please check at least one person to Remove...!")
+                Exit Sub
+            End If
+            DispGrd1()
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Protected Sub btnapprove_Click(sender As Object, e As EventArgs)
+        Try
+            Dim c As Boolean = False
+            For i As Integer = 0 To GvCateg.Rows.Count
+                Dim chk = CType(GvCateg.Rows(i).FindControl("chkmgr"), CheckBox)
+                Dim pno = CType(GvCateg.Rows(i).FindControl("lblpno"), Label)
+                Dim id = CType(GvCateg.Rows(i).FindControl("hdfnid"), HiddenField)
+
+                If chk.Checked = True Then
+                    UpdateStatus1(id.Value, "AP")
+                    c = True
+                Else
+                    c = False
+                End If
+            Next
+            If c Then
+                ShowGenericMessageModal(CommonConstants.AlertType.success, "Selected person has been approved...!")
+            Else
+                ShowGenericMessageModal(CommonConstants.AlertType.success, "Please check al least one person to approve...!")
+                Exit Sub
+            End If
+        Catch ex As Exception
+
+        End Try
+        DispGrd1()
+    End Sub
+    Public Sub chkApproval()
+        Try
+
+            Dim qry As String = String.Empty
+            Dim pno = Session("USER_ID").ToString()
+            qry = "select * from t_survey_status where ss_crt_by='" & pno & "' and SS_TAG='SU'"
+            Dim cod As New OracleCommand()
+            cod.CommandText = qry
+            Dim dt = getRecordInDt(cod, conHrps)
+            If dt.Rows.Count > 0 Then
+                gvself.Columns(6).Visible = False
+                GvCateg.Columns(8).Visible = False
+            End If
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Public Function ChkValidation() As Boolean
+        Dim status As Boolean = False
+        Try
+
+            Dim cmdqry As New OracleCommand()
+            cmdqry.CommandText = "select IRC_CODE,SUBSTR(IRC_DESC,0,1) minmum, SUBSTR(IRC_DESC,3,1) maximum from t_ir_codes  where irc_type='360VL' and irc_valid_tag='A'"
+            Dim dt = getRecordInDt(cmdqry, conHrps)
+
+            If dt.Rows.Count > 0 Then
+                For i = 0 To dt.Rows.Count
+                    cmdqry = New OracleCommand()
+                    cmdqry.CommandText = " select * from t_survey_status where SS_CRT_BY ='" & Session("USER_ID").ToString() & "' "
+                    cmdqry.CommandText += " and upper(SS_CATEG) = '" & dt.Rows(i)("IRC_CODE").ToString().ToUpper & "' and SS_STATUS='SE'"
+                    Dim dtls = getRecordInDt(cmdqry, conHrps)
+
+                    If dtls.Rows.Count < dt.Rows(i)("minmum") Then
+                        status = True
+                    End If
+                    If dt.Rows(i)("maximum") = "N" Then
+
+                    Else
+                        If dtls.Rows.Count > dt.Rows(i)("maximum") Then
+                            status = True
+                        End If
+
+                    End If
+
+                Next
+            End If
+        Catch ex As Exception
+
+        End Try
+        Return status
+    End Function
+    Public Sub GetSelected(dt As DataTable)
+        Try
+            If Request.QueryString("pno") <> Nothing Then
+
+                For o = 0 To dt.Rows.Count - 1
+                    Dim strself = New OracleCommand()
+                    strself.CommandText = "select * from t_survey_status  where SS_PNO ='" & dt.Rows(o)("ema_perno").ToString() & "'"
+                    Dim dt1 = getRecordInDt(strself, conHrps)
+                    If dt1.Rows.Count > 0 Then
+                    Else
+                        SaveData(ddlrole.SelectedValue, dt.Rows(o)("ema_perno").ToString(), dt.Rows(o)("ema_ename").ToString(), dt.Rows(o)("EMA_DESGN_DESC").ToString(), dt.Rows(o)("EMA_DEPT_DESC").ToString(), dt.Rows(o)("EMA_EMAIL_ID").ToString(), "ORG", "SE")
+                    End If
+                Next
+                GvCateg.Columns(8).Visible = False
+
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+    Protected Sub GvCateg_RowDataBound(sender As Object, e As GridViewRowEventArgs)
+        Try
+            Dim id = CType(e.Row.FindControl("hdfnid"), HiddenField)
+            Dim chk = CType(e.Row.FindControl("chkseldsel"), CheckBox)
+            Dim perno = CType(e.Row.FindControl("lblpno"), Label)
+
+            Dim comnd As New OracleCommand()
+            If perno.Text = "" Then
+                comnd.CommandText = " select *  from t_survey_status  where SS_STATUS='SE' and SS_ID='" & id.Value & "'"
+            Else
+                comnd.CommandText = " select *  from t_survey_status  where SS_STATUS='SE' and ss_pno='" & perno.Text & "'"
+            End If
+
+            Dim d = getRecordInDt(comnd, conHrps)
+
+            If d.Rows.Count > 0 Then
+                chk.Checked = True
+            Else
+                chk.Checked = False
+            End If
+
+
+        Catch ex As Exception
+            ' MsgBox(ex.ToString())
+        End Try
+
+    End Sub
+End Class

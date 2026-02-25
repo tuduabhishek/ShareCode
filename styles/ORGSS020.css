@@ -1,0 +1,134 @@
+﻿
+.treetable-widget-content-energyblue
+{
+    border-color:#ddd;
+}
+ .treetable-widget-header-energyblue
+{
+    border-color: #ddd;
+    background-color: #ecf0f1
+}
+.treetable-fill-state-normal-energyblue {
+     border-color: #ecf0f1;
+    background-color: #34495e
+}
+.treetable-fill-state-hover-energyblue
+{
+     border-color: #ecf0f1;
+    background-color: #34495e
+}
+.treetable-fill-state-pressed-energyblue
+{
+    border-color: #ecf0f1;
+    background-color: #34495e
+}
+.treetable-fill-state-focus-energyblue
+{
+    border-color: #34495e;
+}
+.treetable-tree-grid-title{
+    font-size:11px !important;
+}
+.treetable-scrollbar-state-normal-energyblue, .treetable-grid-bottomright-energyblue, .treetable-panel-bottomright-energyblue, .treetable-listbox-bottomright-energyblue
+{
+    background-color: #ecf0f1
+}
+.treetable-widget-energyblue .treetable-grid-column-header-energyblue, .treetable-grid-cell-energyblue, .treetable-widget-energyblue .treetable-grid-cell-energyblue, .treetable-widget-energyblue .treetable-grid-group-cell-energyblue, .treetable-grid-group-cell-energyblue
+{
+    border-color:  #ddd
+}
+.treetable-tabs-title-selected-bottom-energyblue, .treetable-tabs-selection-tracker-bottom-energyblue, .treetable-tabs-title-selected-top-energyblue, .treetable-tabs-selection-tracker-top-energyblue
+{
+    border-color: #ecf0f1;
+    border-bottom: 1px solid #fff;
+    background: #fff;
+}
+.treetable-grid-cell-sort-alt-energyblue, .treetable-grid-cell-filter-alt-energyblue, .treetable-grid-cell-pinned-energyblue, .treetable-grid-cell-alt-energyblue, .treetable-grid-cell-sort-energyblue
+{
+    background-color: #ecf0f1;
+}
+.treetable-grid-cell-selected-energyblue
+{
+    background-color: #ecf0f1 !important;
+    color: #34495e !important;
+}
+.treetable-grid-cell-hover-energyblue
+{
+    background-color: #f5f5f5 !important;
+    color:#34495e !important
+}
+.treetable-menu-vertical-energyblue
+{
+    background: #ecf0f1;
+}
+
+/*treetableDropDownList Style*/
+/*applied to the dropdownlist's content element which displays the selected item's text or html.*/
+.treetable-dropdownlist-content
+{
+    padding: 0px;
+    overflow: hidden;
+    padding-left: 3px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 0px;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+    -webkit-appearance: none;
+    outline: 0 none;
+    border: none;
+    color:#000;
+}
+
+/*applied to the Grid's header area.*/
+.treetable-grid-header 
+{
+    border-style: solid;
+    border-width: 0px 0px 0px 0px;
+    overflow: hidden;
+    border-color: White;
+    margin: 0px;
+    padding: 0px;
+     color:#34495e;
+ }
+ /*applied to the columns.*/
+.treetable-grid-column-header, .treetable-grid-columngroup-header {
+    border-style: solid;
+    border-width: 1px !important;
+    border-color: White;
+    white-space: nowrap;
+    border-style: solid;
+    font-weight: normal;  
+    overflow: hidden;
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+    color:#34495e;
+    font-weight: bold;
+ }
+ 
+ 
+ .treetable-grid-toolbar a:link, .treetable-grid-toolbar a:visited {
+    margin: 4px;
+    height: 18px;
+    line-height: 18px !important;
+    color: inherit;
+    outline: 0 none;
+    text-decoration: none;
+    cursor: pointer;
+    color:#000;
+    
+}
+
+/*treetableButton, treetableToggleButton, treetableRepeatButton Style*/
+.treetable-button{outline: none; border: 1px solid transparent; padding: 3px; text-align: center; vertical-align: central; margin: 0 0 0 0; cursor: default; color:#34495e;border-color:#ecf0f1; }
+button.treetable-button, input[type=button].treetable-button,  input[type=submit].treetable-button {
+    box-sizing: border-box !important; -moz-box-sizing: border-box !important; 
+}
+
+.treetable-buttongroup{}
+.treetable-group-button-normal {
+    vertical-align: middle;
+    text-align: center;
+}

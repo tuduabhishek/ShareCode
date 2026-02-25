@@ -1,0 +1,1707 @@
+﻿/*Rounded Corners*/
+/*top-left rounded Corners*/
+.treetable-rc-tl
+{
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
+}
+/*top-right rounded Corners*/
+.treetable-rc-tr
+{
+    -moz-border-radius-topright: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+/*bottom-left rounded Corners*/
+.treetable-rc-bl
+{
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+/*bottom-right rounded Corners*/
+.treetable-rc-br
+{
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+/*top rounded Corners*/
+.treetable-rc-t
+{
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+/*bottom rounded Corners*/
+.treetable-rc-b
+{
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+/*right rounded Corners*/
+.treetable-rc-r
+{
+    -moz-border-radius-topright: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+/*left rounded Corners*/
+.treetable-rc-l
+{
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+/*all rounded Corners*/
+.treetable-rc-all
+{
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+/*reset rounded corners*/
+.treetable-rc-reset
+{
+    -moz-border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+    border-radius: 0px !important;
+}
+
+/*Reset Style*/
+.treetable-reset
+{
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    outline: none;
+    box-sizing: content-box;
+}
+.treetable-clear {
+    align:left; valign:top; left: 0px; top: 0px; -webkit-appearance: none !important; outline: none !important; padding: 0px; margin: 0px;
+}
+.treetable-popup {
+    box-sizing: content-box;
+}
+.treetable-position-reset {
+    position: static !important; 
+}
+.treetable-border-reset {
+    border: none !important;
+}
+.treetable-overflow-hidden {
+    overflow: hidden !important;
+}
+.treetable-position-relative {
+    position: relative !important;
+}
+.treetable-position-absolute {
+    position: absolute !important;
+}
+.treetable-max-size {
+    width: 100% !important;
+    height: 100% !important;
+}
+.treetable-background-reset {
+    background: transparent !important;
+}
+
+/*treetableButton, treetableToggleButton, treetableRepeatButton Style*/
+.treetable-button{outline: none; border: 1px solid transparent; padding: 3px; text-align: center; vertical-align: central; margin: 0 0 0 0; cursor: default; }
+button.treetable-button, input[type=button].treetable-button,  input[type=submit].treetable-button {
+    box-sizing: border-box !important; -moz-box-sizing: border-box !important; 
+}
+
+.treetable-buttongroup{}
+.treetable-group-button-normal {
+    vertical-align: middle;
+    text-align: center;
+}
+/*applied to the link button's anchor element.*/
+.treetable-link
+{
+    text-decoration: none;
+    color: #111111;
+}
+
+/*shows elements.*/
+.treetable-visible
+{
+    display: block;
+}
+/*hides elements.*/
+.treetable-hidden
+{
+    display: none;
+}
+.treetable-widget, .treetable-widget-content, .treetable-widget-header, .treetable-fill-state-normal {
+    line-height: 1.231;
+}
+/*treetableGauge Style*/
+.treetable-gauge-label, .treetable-gauge-caption
+{
+    fill: #333333;
+    color: #333333;
+    font-size: 11px;
+    /*font-family: Verdana;*/
+}
+/*treetableChart Style*/
+.treetable-chart-axis-text,
+.treetable-chart-label-text, 
+.treetable-chart-tooltip-text, 
+.treetable-chart-legend-text
+{
+    fill: #333333;
+    color: #333333;
+    font-size: 11px;
+    /*font-family: Verdana;*/
+}
+.treetable-chart-axis-description
+{
+    fill: #555555;
+    color: #555555;
+    font-size: 11px;
+    /*font-family: Verdana;*/
+}
+.treetable-chart-title-text
+{
+    fill: #111111;
+    color: #111111;
+    font-size: 14px;
+    font-weight: bold;
+    /*font-family: Verdana;*/
+}
+.treetable-chart-title-description
+{
+    fill: #111111;
+    color: #111111;
+    font-size: 12px;
+    font-weight: normal;
+   /* font-family: Verdana;*/
+}
+
+/*applied to the Grid's element.*/
+.treetable-grid
+{
+    overflow: hidden;
+    border-style: solid;
+    border-width: 1px;
+}
+/*applied to the Pager.*/
+.treetable-grid-pager
+{
+    border: none;
+    border-top: 1px solid transparent;
+}
+/*applied to the Top Pager.*/
+.treetable-grid-pager-top
+{
+    border: none;
+    border-bottom: 1px solid transparent;
+}
+.treetable-grid-pager-number{
+    padding: 2px 5px;
+    text-decoration: none;
+    margin: 1px;
+    border: 1px solid transparent;
+    color: expression(this.parentNode.currentStyle['color']) !important;
+outline: none;
+    font-weight: normal !important;
+}
+
+/*applied to the Grid's bottom-right area between the horizontal and vertical scrollbars.*/
+.treetable-grid-bottomright
+{
+   
+}
+/*applied to the Grid's header area.*/
+.treetable-grid-header 
+{
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    overflow: hidden;
+    border-color: transparent;
+    margin: 0px;
+    padding: 0px;
+ }
+ /*applied to the columns.*/
+.treetable-grid-column-header, .treetable-grid-columngroup-header {
+    border-style: solid;
+    border-width: 0px 1px 0px 0px;
+    border-color: transparent;
+    white-space: nowrap;
+    border-style: solid;
+    font-weight: normal;  
+    overflow: hidden;
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+ }
+.treetable-grid-column-header-rtl, .treetable-grid-columngroup-header-rtl {
+    border-width: 0px 0px 0px 1px;
+}
+.treetable-grid-columngroup-header {
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+ /*applied to the column's button.*/
+ .treetable-grid-column-menubutton {
+    border-style: solid;
+    border-width: 0px 0px 0px 1px;
+    border-color: transparent;
+    background-image: url('../images/menubutton.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+ }
+.treetable-grid-column-menubutton-rtl {
+    border-width: 0px 1px 0px 0px;
+}
+ /*applied to the column's sort button when the sort order is ascending.*/
+ .treetable-grid-column-sortascbutton {
+    border: none;
+    background-image: url('../images/icon-down.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+ }
+ /*applied to the column's sort button when the sort order is descending.*/
+  .treetable-grid-column-sortdescbutton {
+    border: none;
+    background-image: url('../images/icon-up.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+ }
+  /*applied to the column's filter button.*/
+  .treetable-grid-column-filterbutton
+ {
+    border: none;
+    background-image: url('../images/filter.png');
+    background-repeat: no-repeat;
+    background-position: center;
+ }
+  /*applied to the column's resize line.*/
+ .treetable-grid-column-resizeline {
+   border-right: 1px dotted #555; 
+ }
+
+  /*applied to the column's resize start line.*/
+  .treetable-grid-column-resizestartline {
+   border-right: 1px solid #444; 
+ }
+ 
+ 
+   /*applied to the grouping column's drag and drop item when the drop operation is allowed.*/
+ .treetable-grid-drag-icon
+ {
+    background-image: url('../images/drag.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 16px;
+    height: 16px;
+ }
+   /*applied to the grouping column's drag and drop item when the drop operation is not allowed.*/
+ .treetable-grid-dragcancel-icon
+ {
+    background-image: url('../images/dragcancel.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 16px;
+    height: 16px;
+ }
+ /*applied to the 'group by' menu item.*/
+ .treetable-grid-groupby-icon
+ {
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin-left: -4px;
+    margin-right: 4px;
+ }
+ 
+/*applied to the column anchor tags.*/
+ .treetable-grid-column-header a:link, .treetable-grid-column-header a:visited
+ {
+    display: block;
+    margin: 4px;
+    height: 18px;
+    line-height: 18px !important;
+    color: inherit;
+    outline: 0 none;
+    text-decoration: none;
+    cursor: pointer;
+}
+.treetable-grid-toolbar a:link, .treetable-grid-toolbar a:visited {
+    margin: 4px;
+    height: 18px;
+    line-height: 18px !important;
+    color: inherit;
+    outline: 0 none;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*applied to the groups header area.*/
+ .treetable-grid-groups-header, .treetable-grid-toolbar {
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: #aaa;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+ }
+/*applied to a grouping row.*/
+ .treetable-grid-groups-row {
+    font-weight:bold;
+    white-space: nowrap;
+    text-align: left;
+    padding: 0px;
+    top: 50%;
+    margin-top: -8px;
+ }
+ /*applied to the row details.*/
+ .treetable-grid-groups-row-details {
+    font-weight: normal;
+ }
+ /*applied to a grouping column.*/
+ .treetable-grid-group-column 
+ {
+    border: 1px solid transparent;
+    white-space: nowrap;
+    border-style: solid;
+    font-weight: normal;  
+    overflow: hidden;
+    text-align: left;
+    padding: 0px;
+    margin: 0px;
+ }
+ /*applied to the lines between the group columns.*/
+  .treetable-grid-group-column-line
+ {
+    background: #aaa;
+ }
+ /*applied to the drop line indicators displayed in the grouping header.*/
+  .treetable-grid-group-drag-line
+ {
+    background: #80be09;
+ }
+ /*applied to the anchor tags inside a grouping column.*/
+ .treetable-grid-group-column  a:link{
+    display: block;
+    margin: 4px;
+    height: 18px;
+    line-height: 18px !important;
+    outline: 0 none;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+    *color: expression(this.parentNode.currentStyle['color']);     
+}
+ .treetable-grid-group-column  a:visited{
+    color: inherit;
+    display: block;
+    margin: 4px;
+    height: 18px;
+    line-height: 18px !important;
+    outline: 0 none;
+    text-decoration: none;
+    cursor: pointer;
+     *color: expression(this.parentNode.currentStyle['color']);    
+}
+/*applied to a grid cell*/
+.treetable-grid-cell {
+    border-style: solid;
+    border-width: 0px 1px 1px 0px;
+    margin-right: 1px;
+    margin-bottom: 1px;
+    border-color: transparent;  
+    background: #fff;
+    white-space: nowrap;
+    font-weight: normal; 
+    font-size: inherit;
+    overflow: hidden; 
+    position: absolute !important; 
+    height: 100%; 
+ }
+.treetable-grid-cell-locked {
+    color: #aaa !important;
+}
+/*applied to a grid cell that is part of a rows group.*/
+ .treetable-grid-group-cell{ 
+    overflow: hidden; 
+    position: absolute !important; 
+    height: 100%; 
+    background: #fff;
+ }
+/*applied to the grid cells in the sort column*/
+ .treetable-grid-cell-sort {
+    background-color: #f0f0f0;
+ }
+
+ /*applied to the grid cells in the filter column*/
+ .treetable-grid-cell-filter {
+    background-color: #e6e6e6;
+ }
+ /*applied to the grid cells area.*/
+.treetable-grid-content {
+    border-style: solid;
+    border-width: 0px 0px 0px 0px;
+    border-color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+ }
+ /*applied to a grid cell that is part of a rows group.*/
+.treetable-grid-group-cell, .treetable-grid-empty-cell {
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+    white-space: nowrap;
+    font-weight: normal;   
+ }
+.treetable-widget .treetable-grid-cleared-cell, .treetable-grid-cleared-cell {
+    border: transparent !important;
+}
+.treetable-grid-cell-wrap {white-space: normal !important;}
+
+.treetable-tree-grid-indent {
+    width: 14px;
+    display: inline-block;
+    height: 8px;
+    overflow: hidden;
+    vertical-align: top;
+}
+.treetable-tree-grid-title {
+    text-decoration: none;
+    vertical-align: top;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.treetable-tree-grid-collapse-button, .treetable-tree-grid-expand-button {
+    display: inline-block;
+    margin-top: 2px;
+    margin-right: 0px;
+    position: relative;
+    width: 14px;
+    height: 13px;   
+    vertical-align: top;
+}
+.treetable-tree-grid-checkbox {
+   float: none !important; 
+   width: 14px;
+   height: 14px;
+   cursor: pointer;
+   margin-right: 2px !important;
+   margin-left: 2px !important;
+}
+.treetable-tree-grid-icon {
+   float: none !important; 
+   width: 14px;
+   height: 14px;
+   margin-right: 4px;
+}
+.treetable-tree-grid-icon-rtl {
+   margin-right: 0px;
+   margin-left: 4px;
+}
+.treetable-tree-grid-icon-size {
+   width: 14px;
+   height: 14px;
+   line-height: 16px;
+}
+
+.treetable-tree-grid-checkbox-tick {
+    width: 100%;
+    height: 100%;
+}
+.treetable-tree-grid-expand-button {
+    height: 10px;
+    width: 14px;
+    vertical-align: top;
+}
+
+/*applied to a cell in treetableDataTable*/
+.treetable-cell {
+    min-height: 23px;
+    padding: 6px 4px;
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid transparent;
+    border-top-width: 0px;
+    border-left-width: 0px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    white-space: normal;
+    line-height: 1.231;
+}
+.treetable-grid-cell-nowrap {white-space: nowrap;}
+
+.treetable-cell-editor {
+    padding-left: 4px !important;
+    padding-right: 3px !important;
+}
+.treetable-left-align {
+    text-align: left;
+}
+.treetable-center-align {
+    text-align: center;
+}
+.treetable-right-align {
+    text-align: right;
+}
+
+.treetable-grid-table .treetable-grid-cell {
+    position: static !important;
+    zoom: 1;
+}
+/*applied to the Grid's Table element.*/
+.treetable-grid-table {
+    font-size: 13px;
+    table-layout: fixed;
+    margin: 0px;
+    padding: 0px;
+    border-collapse: separate;
+    border-spacing: 0px;
+    -webkit-overflow-scrolling: touch;
+    outline: none;
+    zoom: 1;
+    empty-cells: show;
+    border-right: 1px solid #aaa;
+    line-height: 1.231;
+    width: auto;
+    border: none;
+}
+.treetable-grid-table-rtl {
+    border-left-width: 1px;
+    border-right-width: 0px;
+}
+.treetable-details table {
+   border-collapse: collapse;
+   table-layout: fixed;
+   border-spacing: 0px;
+}
+
+ /*applied to a grid cell that is part of a details row and grouping is enabled.*/
+.treetable-grid-group-details-cell {
+
+ }
+ /*applied to a grid cell that is part of a details row.*/
+.treetable-grid-details-cell {
+    border-width: 0px 1px 0px 0px;
+ }
+  /*applied to a grid cell. Represents the alternating cell background.*/
+.treetable-grid-cell-alt {
+    background: #f9f9f9;  
+ }
+/*applied to a sorted and alternating grid cell*/
+.treetable-grid-cell-sort-alt {
+    background-color: #e5e5e5;
+ }/*applied to a sorted and alternating grid cell*/
+.treetable-grid-cell-filter-alt {
+    background-color: #f0f0f0;
+ }
+  /*applied to a pinned grid cell.*/
+.treetable-grid-cell-pinned {
+    background-color: #e5e5e5;
+ }
+ /*applied to a pinned grid cell. Represents the alternating cell background.*/
+.treetable-grid-cell-pinned-alt {
+    background-color: #e5e5e5;
+ }
+ /*applied to a selected grid cell.*/
+ .treetable-grid-cell-selected {
+    border-left: 0px solid transparent;
+ }
+ .treetable-cell-rtl {
+   border-left-width: 1px;
+   border-right-width: 0px;
+ }
+ .treetable-grid-cell-rtl {
+    border-width: 0px 0px 1px 1px;
+ }
+ .treetable-grid-table .treetable-grid-cell {
+   border-width: 0px 0px 1px 1px;
+ }
+ .treetable-grid-table .treetable-grid-cell:first-child {
+    border-left-width: 0px;
+ }
+
+  /*applied to the selection area.*/
+ .treetable-grid-selectionarea {
+    border: 1px solid transparent;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+ }
+ /*applied to a hovered grid cell.*/
+ .treetable-grid-cell-hover {
+    border-color: transparent;
+ }
+  /*applied to a grid cell when the grid is empty.*/
+ .treetable-grid-empty-cell{ overflow: visible; border-bottom: none;}
+
+ 
+/*applied to a group's collapse button.*/
+.treetable-grid-group-collapse
+{
+    padding-right: 0px;
+    background-image: url(../images/icon-right.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.treetable-grid-group-collapse-rtl
+{
+    padding-right: 0px;
+    background-image: url(../images/icon-left.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+/*applied to a group's expand button.*/
+.treetable-grid-group-expand, .treetable-grid-group-expand-rtl
+{
+    padding-right: 0px;
+    background-image: url(../images/icon-down.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+/*treetableProgresBar Style*/
+.treetable-progressbar
+{
+    overflow: hidden;
+    outline: none;
+    border: 1px solid transparent;
+    height: 2em;
+}
+/*applied to the progressbar's value element*/
+.treetable-progressbar-value
+{
+    outline: none;
+    border: 0px solid transparent;
+    height: 100%;
+}
+/*applied to the progress bar's vertical value element- when the widget's orientation is 'vertical'*/
+.treetable-progressbar-value-vertical
+{
+    outline: none;
+    border: 0px solid transparent;
+    height: 100%;
+    background: transparent;
+}
+/*applied to the progressbar's text element*/
+.treetable-progressbar-text
+{
+    font-size: 10px;
+    border: none;
+}
+/*applied to the progress bar when the widget is in disabled state*/
+.treetable-progressbar-disabled
+{
+    outline: none;
+    border: 1px solid transparent; 
+    height: 2em;
+}
+
+/*treetableMenu Style*/
+.treetable-menu
+{
+    border: 1px solid transparent;
+    float: none;
+    margin: 0px;
+    height: 100%;
+    padding: 0px;
+    overflow: hidden;
+    text-align: left;
+}
+.treetable-menu-dropdown-column
+{
+    float: left;
+}
+/*applied to the menu when it is horizontal. Sets the menu's background*/
+.treetable-menu-horizontal
+{
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    text-align: center;
+}
+
+
+/*applied to a sub menu item when it has sub menu items and its sub menu is opened. Displays right arrow icon.*/
+.treetable-menu-item-arrow-right-selected
+{
+    background-image: url(../images/icon-right.png);
+}
+/*applied to a sub menu item when it has sub menu items and its sub menu is opened. Displays down arrow icon.*/
+.treetable-menu-item-arrow-down-selected
+{
+    background-image: url(../images/icon-down.png);
+}
+/*applied to a sub menu item when it has sub menu items and its sub menu is opened. Displays up arrow icon.*/
+.treetable-menu-item-arrow-up-selected
+{
+    background-image: url(../images/icon-up.png);
+}
+.treetable-menu-item-arrow-right-selected, .treetable-menu-item-arrow-up-selected, .treetable-menu-item-arrow-down-selected, .treetable-menu-item-arrow-top-right {
+    padding-right: 0px;
+    margin-right: -8px;
+    width: 17px;
+    height: 15px;
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+}
+/*applied to a top-level menu item when it has sub menu items. Displays right arrow icon.*/
+.treetable-menu-item-arrow-top-right
+{
+    background-image: url(../images/icon-right.png);
+}
+/*applied to a sub menu item when it has sub menu items and its sub menu is opened. Displays left arrow icon.*/
+.treetable-menu-item-arrow-left-selected
+{
+    background-image: url(../images/icon-left.png);
+}
+/*applied to a top-level menu item when it has sub menu items. Displays left arrow icon.*/
+.treetable-menu-item-arrow-top-left
+{
+    background-image: url(../images/icon-left.png);
+}
+.treetable-menu-item-arrow-left-selected, .treetable-menu-item-arrow-top-left {
+    background-position: 0 50%;
+    background-repeat: no-repeat;
+    padding-right: 0px;
+    padding-left: 5px;
+    width: 17px;
+    height: 15px;
+}
+
+
+/*treetabletree Style*/
+.treetable-tree
+{
+    left: 100%;
+    right: 0;
+    float: none;
+    margin: 0px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 0px;
+    overflow: hidden;
+    text-align: left;
+    outline: none;
+    white-space: nowrap;
+    line-height: 14px !important;
+}
+/*applied to the treetableTree root UL element.*/
+.treetable-tree-dropdown-root
+{
+    left: 100%;
+    padding: 0px 5px 0px 5px;
+    right: 0;
+    display: block;
+    float: none;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 0px;
+    border-color: #fff;
+    text-align: left;
+    outline: none;
+    white-space: nowrap;
+    margin: 0px;
+}
+.treetable-tree-dropdown-root-rtl {
+    padding: 0px 5px 0px 0px;
+    text-align: right;
+    float: right;
+    margin: 0px;
+}
+
+/*applied to the treetableTree UL elements.*/
+.treetable-tree-dropdown
+{
+    left: 100%;
+    margin: 0px;
+    padding: 0px 0px 0px 10px;
+    right: 0;
+     display: block;
+    float: none;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 0px;
+    border-color: transparent;
+    text-align: left;
+    outline: none;
+}
+.treetable-tree-dropdown-rtl {
+   padding: 3px 0px 0px 0px;
+   text-align: right;
+}
+
+/*applied to a tree item.*/
+.treetable-tree-item
+{
+    border: 1px solid transparent;
+    text-indent: 0;
+    list-style: none;
+    padding: 3px;
+    margin: 0px;
+    float: none;
+    overflow: hidden;
+    left: 100%;
+    right: 0;
+    text-align: left;
+    cursor: default;
+    text-decoration: none;
+}
+/*applied to the treetableTree LI elements.*/
+.treetable-tree-item-li
+{
+    text-indent: 0;
+    background-color: transparent;
+    border: 0px solid transparent;
+    list-style: none;
+    left: 100%; 
+    right: 0;
+    text-align: left;
+    outline: none;
+    margin: 0px;
+    margin-top: 1px;
+    padding: 0px;
+}
+/*applied to the last LI elements in an UL element.*/
+.treetable-tree-item-u-last
+{
+    margin: 0px 0px 0px 0px;
+}
+/*applied to a tree item when the mouse is over the item.*/
+.treetable-tree-item-hover
+{
+    color: inherit;
+    right: 0;
+    padding: 3px;
+    margin: 0px;
+    list-style: none;
+    left: 100%;
+    cursor: pointer;
+    text-decoration: none;
+}
+/*applied to a tree item when the item is selected.*/
+.treetable-tree-item-selected
+{
+    color: inherit;
+    right: 0;
+    padding: 3px;
+    margin: 0px;
+    list-style: none;
+    left: 100%;
+    cursor: pointer;
+    text-decoration: none;
+}
+.treetable-tree-item-rtl {
+    text-align: right;
+}
+.treetable-tree-item-li-rtl {
+    text-align: right;
+}
+/*applied to the anchor element of a tree item.*/
+.treetable-tree-item a:link, .treetable-tree-item a:visited
+{
+    text-indent: 0;
+    background-color: transparent;
+    border: 0px solid transparent;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    float: none;
+    overflow: hidden;
+    left: 100%;
+    color: inherit;
+    right: 0;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+}
+.treetable-tree-item-selected, .treetable-tree-item-hover a:hover
+{
+    color: inherit;
+}
+.treetable-tree-item-selected, .treetable-tree-item-hover a:visited
+{
+    color: inherit;
+}
+
+/*applied to a tree item when the item is disabled.*/
+.treetable-tree-item-disabled
+{
+
+}
+/*applied to a tree item when it has sub items and is collapsed. Displays an arrow icon next to the item.*/
+.treetable-tree-item-arrow-collapse, .treetable-tree-item-arrow-collapse-hover
+{
+    padding-right: 0px;
+    width: 17px;
+    height: 17px;
+    background-image: url(../images/icon-right.png);
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.treetable-tree-item-arrow-collapse-rtl, .treetable-tree-item-arrow-collapse-hover-rtl {
+    background-image: url(../images/icon-left.png);
+}
+
+/*applied to a tree item when it has sub items and is expanded. Displays an arrow icon next to the item.*/
+.treetable-tree-item-arrow-expand, .treetable-tree-item-arrow-expand-hover
+{
+    padding-right: 0px;
+    width: 17px;
+    height: 17px;
+    background-image: url(../images/icon-down.png);
+    background-position: 100% 50%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+/*applied to the tree when it is disabled.*/
+.treetable-tree-disabled
+{
+    cursor: default;
+}
+/*applied to the anchor elements in a tree when it is disabled.*/
+.treetable-tree-disabled a:link
+{
+    cursor: default;
+    text-decoration: none;
+}
+.treetable-tree-disabled a:visited
+{
+    cursor: default;
+    text-decoration: none;
+}
+.treetable-tree-disabled a:hover
+{
+    cursor: default;
+}
+
+/*applied to the DropDownButton's Popup.*/
+.treetable-dropdownbutton-popup {
+   -webkit-appearance: none;
+    outline: none;
+    border: 1px solid transparent;
+ }
+
+.treetable-listbox
+{
+    -webkit-appearance: none;
+    outline: none;
+    border: 1px solid transparent;
+    padding: 0px;
+    margin: 0px;
+    cursor: default;
+    overflow: hidden;
+}
+/*applied to the ListBox's element displayed when the horizontal and vertical scrollbars are visible and the element is positioned below the vertical scrollbar and on the right
+of the horizontal scrollbar.*/
+.treetable-listbox-bottomright
+{
+
+}
+/*applied to the ListBox's groups.*/
+.treetable-listitem-state-group
+{
+    white-space: nowrap;
+    padding: 4px 2px 4px 2px;
+    background: transparent;
+    font-weight: bold;
+    text-align: left;
+    outline: none;
+    overflow: hidden;
+    vertical-align: middle;
+    cursor: default;
+}
+/*applied to a list item in default state.*/
+.treetable-listitem-state-normal
+{
+    white-space: nowrap;
+    padding: 3px;
+    margin: 1px;
+    border: 1px solid transparent;
+    outline: none;
+    visibility: inherit;
+    display: inherit;
+    text-align: left;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: default;
+}
+/*applied to a list item in hovered state.*/
+.treetable-listitem-state-hover
+{
+    white-space: nowrap;
+    background: transparent;
+    padding: 3px 3px 3px 3px;
+    margin: 1px;
+    border: 1px solid transparent;
+}
+/*applied to a list item when the item is selected.*/
+.treetable-listitem-state-selected
+{
+    white-space: nowrap;
+    padding: 3px 3px 3px 3px;
+    margin: 1px;
+    border: 1px solid transparent;
+}
+.treetable-listbox-feedback
+{
+    height: 1px;
+    border-top: 1px dashed #000;
+}
+.treetable-listitem-element
+{
+  -ms-touch-action: none;
+  border: none; 
+  width:100%; 
+  height: 100%; 
+  align:left; 
+  valign:top; 
+  position: absolute;
+}
+
+/*treetableDropDownList Style*/
+/*applied to the dropdownlist's content element which displays the selected item's text or html.*/
+.treetable-dropdownlist-content
+{
+    padding: 0px;
+    overflow: hidden;
+    padding-left: 3px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 0px;
+    text-align: left;
+    vertical-align: middle;
+    white-space: nowrap;
+    -webkit-appearance: none;
+    outline: 0 none;
+    border: none;
+}
+.treetable-dropdownlist-content-rtl {
+    padding-left: 0px;
+    padding-right: 3px;
+}
+
+/*applied to the dropdownlist's content element which displays the selected item's text or html and the widget is disabled. */
+.treetable-dropdownlist-content-disabled
+{
+}
+/*applied to the dropdownlist in default state.*/
+.treetable-dropdownlist-state-normal
+{
+    -webkit-appearance: none;
+    outline: none;
+    border: 1px solid transparent;
+    overflow: hidden;
+    margin: 0 0 0 0;
+    cursor: pointer;
+}
+/*applied to the dropdownlist in hovered state.*/
+.treetable-dropdownlist-state-hover
+{
+    overflow: hidden;
+    border: 1px solid transparent;
+    margin: 0 0 0 0;
+    cursor: pointer;
+}
+/*applied to the dropdownlist in selected state.*/
+.treetable-dropdownlist-state-selected
+{ 
+    overflow: hidden;
+    background-color: transparent;
+    border: 1px solid transparent;
+    margin: 0 0 0 0;
+    cursor: pointer;
+}
+/*applied to the dropdownlist in focused state.*/
+.treetable-dropdownlist-state-focus
+{
+    border: 1px solid #909090;
+}
+/*applied to the dropdownlist in disabled state.*/
+.treetable-dropdownlist-state-disabled
+{
+
+}
+/*treetableScrollBar Style*/
+.treetable-scrollbar
+{
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+/*applied to the scrollbar in default state.*/
+.treetable-scrollbar-state-normal
+{
+    background: #efefef;
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid transparent;
+}
+/*applied to the scrollbar buttons in default state.*/
+.treetable-scrollbar-button-state-normal
+{
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid transparent; 
+}
+/*applied to the scrollbar buttons in hovered state.*/
+.treetable-scrollbar-button-state-hover
+{
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid transparent;
+}
+/*applied to the scrollbar buttons in pressed state.*/
+.treetable-scrollbar-button-state-pressed
+{
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid transparent;
+}
+/*applied to the horizontal scrollbar thumb in default state.*/
+.treetable-scrollbar-thumb-state-normal-horizontal
+{
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+    border: 1px solid transparent;
+}
+/*applied to the horizontal scrollbar thumb in hovered state.*/
+.treetable-scrollbar-thumb-state-hover-horizontal
+{
+    margin: 0px;
+    padding: 0px;   
+    border: 1px solid transparent;
+}
+/*applied to the horizontal scrollbar thumb in default state.*/
+.treetable-scrollbar-thumb-state-pressed-horizontal
+{
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid transparent;
+}
+/*applied to the vertical scrollbar thumb in default state.*/
+.treetable-scrollbar-thumb-state-normal
+{
+    margin: 0px;
+    padding: 0px;
+    border: 1px solid transparent;
+}
+/*applied to the vertical scrollbar thumb in default state.*/
+.treetable-scrollbar-thumb-state-hover
+{
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+    border: 1px solid transparent;
+}
+/*applied to the vertical scrollbar thumb in default state.*/
+.treetable-scrollbar-thumb-state-pressed
+{
+    margin: 0px;
+    padding: 0px;
+    background: #d1d1d1;
+    border: 1px solid #909090;
+}
+
+
+
+.treetable-icon-arrow-up, .treetable-icon-arrow-up-hover, .treetable-icon-arrow-up-selected
+{
+    background-image: url('../images/icon-up.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.treetable-icon-arrow-down, .treetable-icon-arrow-down-hover, .treetable-icon-arrow-down-selected
+{
+    background-image: url('../images/icon-down.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.treetable-icon-arrow-left, .treetable-icon-arrow-left-hover, .treetable-icon-arrow-left-selected
+{
+    background-image: url('../images/icon-left.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.treetable-icon-arrow-right, .treetable-icon-arrow-right-hover, .treetable-icon-arrow-right-selected
+{
+    background-image: url('../images/icon-right.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.treetable-icon-arrow-first, .treetable-icon-arrow-first-hover, .treetable-icon-arrow-first-selected
+{
+    background-image: url('../images/icon-first.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.treetable-icon-arrow-last, .treetable-icon-arrow-last-hover, .treetable-icon-arrow-last-selected
+{
+    background-image: url('../images/icon-last.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.treetable-icon-arrow-up-hover
+{
+    background-image: url('../images/icon-up.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.treetable-icon-arrow-down-hover
+{
+    background-image: url('../images/icon-down.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.treetable-icon-arrow-left-hover
+{
+    background-image: url('../images/icon-left.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.treetable-icon-arrow-right-hover
+{
+    background-image: url('../images/icon-right.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.treetable-icon-arrow-up-selected
+{
+    background-image: url('../images/icon-up.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.treetable-icon-arrow-down-selected
+{
+    background-image: url('../images/icon-down.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.treetable-icon-arrow-left-selected
+{
+    background-image: url('../images/icon-left.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.treetable-icon-arrow-right-selected
+{
+    background-image: url('../images/icon-right.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.treetable-icon-close
+{
+    cursor: pointer;
+    background-image: url(../images/close.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.treetable-icon-close-hover
+{
+    cursor: pointer;
+    background-image: url(../images/close.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.treetable-icon-search
+{
+    cursor: pointer;
+    background-image: url(../images/search.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 1px;
+    background-size: 13px;
+    width: 13px;
+    height: 13px;
+}
+
+/* treetableScrollView */
+.treetable-scrollview-button
+{
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    display: inline-block;
+    margin: 2px;
+    cursor: pointer;
+    background-color: #aaaeaf;
+}
+.treetable-scrollview
+{
+    background-color: #000;
+    -ms-touch-action: auto !important;
+}
+
+/*applied to Inputs*/
+.treetable-input{-webkit-user-modify:inherit; -moz-user-modify: inherit;  overflow: hidden; background-color: inherit; border-color: #c7c7c7;}
+.treetable-input-invalid {
+    color: red !important;
+}
+.treetable-input-group {overflow: hidden;}
+.treetable-input-group-addon {border: 1px solid transparent; position: relative; -webkit-box-sizing: border-box !important; -moz-box-sizing: border-box !important; box-sizing: border-box !important; padding: 2px 8px !important; float: left; white-space: nowrap; vertical-align: middle; }
+.treetable-input-group-addon:first-child {
+  border-right-width: 0px;
+  border-bottom-right-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+.treetable-input-group-addon:last-child {
+  border-left-width: 0px;
+  border-bottom-left-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+}
+.treetable-input-group-addon:not(:last-child):not(:first-child) {
+  border-bottom-left-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-left-width: 0px;
+}
+.treetable-input-group .treetable-input {
+    padding: 2px 1px !important;
+    border-left-width: 1px !important;
+    border-right-width: 1px !important;
+}
+.treetable-editor {
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
+    overflow:  hidden;
+    box-sizing: border-box !important;
+}
+.treetable-editor-window {
+    overflow: hidden;
+}
+.treetable-editor-inline {
+    padding: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+}
+.treetable-editor-inline p {
+    margin: 0px;padding:0 .2em; 
+}
+.treetable-editor-inline-focus {
+    border-width: 1px;
+    border-style: solid;
+    overflow: auto;
+}
+.treetable-editor iframe {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    display: inline;
+    vertical-align: top;
+    width: 100%;
+    height: 100%;
+}
+.treetable-editor-color-bar {
+    height: 3px;
+}
+.treetable-editor-color-picker table {
+    margin: 0;
+    padding: 0 4px 4px;
+    empty-cells: show;
+    border-collapse: separate; 
+}
+.treetable-editor-color-picker td {
+    border-collapse: separate; 
+    border: 1px solid transparent;
+    cursor: pointer;
+    margin: 0;
+    position: relative;
+}
+.treetable-editor-color-picker td:hover {
+    border: 1px solid #000;
+}
+.treetable-editor-color-picker-selected-cell {
+    outline: 1px solid #000;
+}
+.treetable-editor-color-picker td div{
+    width: 16px;
+    height: 16px;
+}
+.treetable-editor-content {
+    width: 100%;
+    border-style: solid;
+    border-width: 1px;
+    outline: 0;
+    left: 0px;
+    position: relative;
+    box-sizing: border-box !important;
+}
+.treetable-editor-container {
+    position: relative;
+    padding: 4px;
+    padding-top: 0px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box !important;
+}
+.treetable-editor-toolbar-container {
+    top: 0px; left: 0px;
+    box-sizing: border-box !important;
+}
+.treetable-editor-toolbar-inline {
+    padding: 0px 4px;
+    border-width: 1px;
+    border-style: solid;
+}
+.treetable-editor-toolbar {
+    margin: 0;
+    padding: 0px;
+    padding-bottom: 4px;
+}
+.treetable-editor-toolbar-icon {
+    height: 21px;
+    width: 21px;
+    vertical-align: middle;
+    opacity: .667;
+    margin: 2px 0;
+    background: url('images/html_editor.png') no-repeat;
+}
+.treetable-editor-toolbar-icon-bold {
+    background-position: 0px 0px !important;
+}
+.treetable-editor-toolbar-icon-italic {
+    background-position: -21px 0px !important;
+}
+.treetable-editor-toolbar-icon-underline {
+    background-position: -42px 0px !important;
+}
+.treetable-editor-toolbar-icon-fontname {
+    background-position: -63px 0px !important;
+}
+.treetable-editor-toolbar-icon-fontsize {
+    background-position: -84px 0px !important;
+}
+.treetable-editor-toolbar-icon-createlink {
+    background-position: -147px 0px !important;
+}
+.treetable-editor-toolbar-icon-insertorderedlist {
+    background-position: -168px 0px !important;
+}
+.treetable-editor-toolbar-icon-insertunorderedlist {
+    background-position: -189px 0px !important;
+}
+.treetable-editor-toolbar-icon-outdent {
+    background-position: -210px 0px !important;
+}
+.treetable-editor-toolbar-icon-indent {
+    background-position: -231px 0px !important;
+}
+.treetable-editor-toolbar-icon-insertimage {
+    background-position:  -337px 0px !important;
+}
+.treetable-editor-toolbar-icon-justifyleft {
+    background-position: -252px 0px !important;
+}
+.treetable-editor-toolbar-icon-justifycenter {
+    background-position: -273px 0px !important;
+}
+.treetable-editor-toolbar-icon-justifyright {
+    background-position: -294px 0px !important;
+}
+.treetable-editor-toolbar-icon-removeformat {
+    background-position: -316px 0px !important;
+}
+.treetable-editor-toolbar-icon-viewsource {
+    background-position: -359px 0px !important;
+}
+.treetable-editor-toolbar-icon-forecolor {
+    background-position: -105px 0px !important;
+    height: 15px;
+}
+.treetable-editor-toolbar-icon-backcolor {
+    background-position: -380px 0px !important;
+    height: 15px;
+}
+
+.treetable-editor-toolbar-icon:hover {
+    opacity: 1;
+}
+.treetable-fill-state-disabled .treetable-editor-toolbar-icon {
+  opacity: .667;
+}
+.treetable-editor-toolbar-item {
+    display: inline-block;
+    margin-left: 2px;    
+    vertical-align: middle;
+}
+.treetable-editor-toolbar-separator {
+    border-left: 1px solid #ccc;
+    margin: 0 2px;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    text-decoration: none;
+    vertical-align: middle;
+    width: 0;
+    display: inline-block;
+}
+.treetable-editor-toolbar-group {
+    display: inline-block;
+    margin-right: 4px;
+    margin-top: 4px;
+    white-space: nowrap;
+}
+.treetable-editor-toolbar-button {
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: default;
+    display: inline-block;
+    padding: 0px !important;
+    margin-right: 2px;
+}
+.treetable-editor-toolbar-group .treetable-editor-toolbar-button {
+    margin-right: -1px;
+    box-shadow: none;
+    position: relative;
+    margin-left: 0px !important;
+}
+.treetable-editor-toolbar-group .treetable-editor-toolbar-button:hover, .treetable-editor-toolbar-group .treetable-editor-toolbar-button:active {
+    z-index: 55;
+}
+.treetable-editor-toolbar-group .treetable-editor-toolbar-button.treetable-fill-state-normal {
+    background: transparent !important;
+}
+
+/*applied to all widgets*/
+.treetable-widget{-moz-box-sizing: content-box; box-sizing: content-box; -ms-touch-action: none; zoom: 1; color: #000000; -moz-background-clip: padding; background-clip: padding-box; -webkit-text-size-adjust: none; -ms-text-size-adjust: none; -webkit-appearance: none; -webkit-background-clip: padding-box; direction: ltr !important; -webkit-tap-highlight-color: rgba(0,0,0,0); /*font-family: Verdana,Arial,sans-serif;*/ font-style: normal; font-size: 13px;}
+
+.treetable-item{-ms-touch-action: none; -moz-box-sizing: content-box; box-sizing: content-box;  color: inherit; -webkit-text-size-adjust: none;}
+
+/*applied to containers to set a background and border color. Tabs, NavigationBar, Calendar content.*/
+.treetable-widget-content {-moz-box-sizing: content-box; box-sizing: content-box; -ms-touch-action: none; -moz-background-clip: padding; -webkit-text-size-adjust: none; background-clip: padding-box; -webkit-background-clip: padding-box; -webkit-tap-highlight-color: rgba(0,0,0,0); /*font-family: Verdana,Arial,sans-serif;*/ font-style: normal; font-size: 13px; border-color: #c7c7c7; background: #fff; }
+/*applied to header areas. Tabs, Menu, Window, Calendar.*/
+.treetable-widget-header {-moz-box-sizing: content-box; box-sizing: content-box; -ms-touch-action: none;-moz-background-clip: padding; -webkit-text-size-adjust: none; background-clip: padding-box; -webkit-background-clip: padding-box; -webkit-tap-highlight-color: rgba(0,0,0,0); border-color: #c5c5c5; background: #e8e8e8; }
+
+.treetable-fill-state-normal{-moz-box-sizing: content-box; box-sizing: content-box; -ms-touch-action: none;/*font-family: Verdana,Arial,sans-serif;*/ font-style: normal; font-size: 13px; border-color:#aaa; background: #efefef; }
+.treetable-fill-state-hover {-moz-box-sizing: content-box; box-sizing: content-box; border-color:#999;  background: #e8e8e8;}
+.treetable-fill-state-pressed{-moz-box-sizing: content-box; box-sizing: content-box; border-color:#999; background: #d1d1d1;}
+.treetable-fill-state-focus {border-color: #555; }
+.treetable-fill-state-disabled {cursor: default; color: #000; opacity: .55; filter:Alpha(Opacity=45);}
+.treetable-fill-state-normal td, .treetable-fill-state-hover td, .treetable-fill-state-pressed td, .treetable-fill-state-disabled td, .treetable-fill-state-focus td, .treetable-widget td, .treetable-widget-content td, .treetable-widget-header td {
+    box-sizing: border-box; -moz-box-sizing: border-box; 
+}
+.treetable-widget .treetable-grid-cell, .treetable-widget .treetable-grid-column-header, .treetable-widget .treetable-grid-group-cell {border-color: #aaa;}
+.treetable-widget .treetable-grid-column-menubutton, .treetable-widget .treetable-grid-column-sortascbutton, .treetable-widget .treetable-grid-column-sortdescbutton, .treetable-widget .treetable-grid-column-filterbutton
+{
+   background-color: transparent;
+   border-color: #aaa;
+}
+.treetable-grid-column-header a:link, .treetable-grid-column-header a:visited
+{
+   *color: expression(this.parentNode.currentStyle['color']);    
+}
+.treetable-grid-bottomright, .treetable-panel-bottomright, .treetable-listbox-bottomright
+{
+   background-color: #e5e5e5;
+}
+
+.treetable-tabs-title-selected-top
+{
+    border-color: #aaa;
+    border-bottom: 1px solid #fff;
+    background-color: #fff;
+}
+
+/*treetableMaskedInput and treetableNumberInput Styles*/
+.treetable-input
+{
+    -webkit-appearance: none;
+    padding: 0 0 0 0;
+    outline: none;
+    border-width: 1px;
+    border-style: solid; 
+    -moz-background-clip: padding; background-clip: padding-box; -webkit-background-clip: padding-box;
+}
+input[type=text].treetable-input, input[type=password].treetable-input {
+    min-height: 16px;
+    min-width: 16px;
+    margin: 0px;
+    border-width: 1px;
+    border-style: solid;
+    font-size: 13px;
+    padding: 0px;
+}
+.treetable-input::-ms-reveal {
+    display: none;
+}
+.treetable-input::-ms-clear {
+    display: none;
+}
+.treetable-input-content::-ms-clear {
+    display: none;
+}
+.treetable-input::-ms-value {
+    margin: 0px;
+    padding: 0px;
+    min-height: 13px;
+    line-height: 13px;
+}
+
+/*applied to the input when the validation fails.*/
+.treetable-input-invalid
+{
+    border-color: #dd4b39 !important;
+}
+
+/*applied to the input's content.*/
+.treetable-input-content
+{
+    -webkit-appearance: none;
+    padding: 1px;
+    resize: none;
+    outline: none;
+    outline-width: 0px;
+    -webkit-user-modify:inherit; -moz-user-modify:inherit;
+    -moz-background-clip: padding; background-clip: padding-box; -webkit-background-clip: padding-box;
+}
+/*applied to the input when it is disabled.*/
+.treetable-input-disabled
+{
+    -webkit-appearance: none;
+    resize: none;
+    outline: none;
+    outline-width: 0px;
+}
+
+
+

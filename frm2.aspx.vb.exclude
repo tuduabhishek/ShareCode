@@ -1,0 +1,98 @@
+﻿Imports System.Web.Services
+Imports System.Data.OracleClient
+Imports System.Data
+Partial Class SCPU004
+    Inherits System.Web.UI.Page
+
+    Dim conHrps As New OracleConnection(ConfigurationManager.ConnectionStrings("MYhrps").ConnectionString)
+    Dim dtls As DataTable
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Try
+            If Not IsPostBack Then
+                bindGrid()
+            End If
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+    Public Sub bindGrid()
+        Try
+
+            Dim qry As New OracleCommand()
+            Dim pno = Session("USER_ID").ToString()
+            qry.CommandText = "select distinct SS_ASSES_PNO,ema_ename,ema_desgn_desc from t_survey_status,tips.t_empl_all where SS_APPROVER ='" & pno & "'"
+            qry.CommandText += "and ema_perno = SS_ASSES_PNO  "
+
+            Dim dt = getRecordInDt(qry, conHrps)
+
+            If dt.Rows.Count > 0 Then
+
+                gvself.DataSource = dt
+                gvself.DataBind()
+            Else
+                gvself.DataSource = Nothing
+                gvself.DataBind()
+
+            End If
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+#Region "GenericMessage"
+    ''' <summary>
+    ''' Method to show the message created during operations on the form.
+    ''' </summary>
+    ''' <param name="alertType"></param>
+    ''' <param name="Message"></param>
+    ''' <remarks></remarks>
+    Public Sub ShowGenericMessageModal(ByVal alertType As CommonConstants.AlertType, ByVal Message As String)
+        ScriptManager.RegisterStartupScript(Me, Me.GetType, "KeyGenericMessageModal", String.Format("showGenericMessageModal('{0}','{1}')", alertType, Message), True)
+    End Sub
+
+#End Region
+
+    Public Function getRecordInDt(ByVal cmd As OracleCommand, ByVal cn As OracleConnection) As DataTable
+        Dim dt As New DataTable()
+        Try
+            If cn.State = ConnectionState.Closed Then
+                cn.Open()
+            End If
+            Dim da As New OracleDataAdapter(cmd.CommandText, cn)
+            da.Fill(dt)
+
+        Catch ex As Exception
+        Finally
+            If cn.State = ConnectionState.Open Then
+                cn.Close()
+            End If
+        End Try
+        Return dt
+    End Function
+
+
+    Protected Sub lbpendingapproval_Click(sender As Object, e As EventArgs)
+        Dim gv = CType(sender, LinkButton).Parent.Parent
+        Dim pno = CType(gv.FindControl("lblpno"), Label).Text
+        Dim perno = SimpleCrypt(pno)
+        Response.Redirect("frm1.aspx?pno=" & perno & "")
+
+    End Sub
+
+    Public Function SimpleCrypt(ByVal Text As String) As String
+        Dim strTempChar As String = "", i As Integer
+        For i = 1 To Text.Length
+            If Asc(Mid$(Text, i, 1)) < 128 Then
+                strTempChar = CType(Asc(Mid$(Text, i, 1)) + 128, String)
+            ElseIf Asc(Mid$(Text, i, 1)) > 128 Then
+                strTempChar = CType(Asc(Mid$(Text, i, 1)) - 128, String)
+            End If
+            Mid$(Text, i, 1) = Chr(CType(strTempChar, Integer))
+        Next i
+        Return Text
+
+    End Function
+End Class

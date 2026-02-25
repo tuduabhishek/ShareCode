@@ -1,0 +1,863 @@
+.treetable-widget-content-custom {
+    border-color: #a4bed4
+}
+
+.treetable-fill-state-normal-custom,
+.treetable-widget-header-custom {
+    border-color: #a4bed4;
+    background-color: #e0e9f5
+}
+
+.treetable-fill-state-hover-custom {
+    border-color: #a4bed4;
+    background-color: #cfdde9
+}
+
+.treetable-fill-state-pressed-custom {
+    border-color: #5e8cb3;
+    background-color: #cfdde9
+}
+
+.treetable-fill-state-focus-custom {
+    border-color: #477396
+}
+
+.treetable-scrollbar-state-normal-custom,
+.treetable-grid-bottomright-custom,
+.treetable-panel-bottomright-custom,
+.treetable-listbox-bottomright-custom {
+    background-color: #e0e9f5
+}
+
+.treetable-widget-custom .treetable-grid-column-header-custom,
+.treetable-grid-cell-custom,
+.treetable-widget-custom .treetable-grid-cell-custom,
+.treetable-widget-custom .treetable-grid-group-cell-custom,
+.treetable-grid-group-cell-custom {
+    border-color: #a4bed4
+}
+
+.treetable-tabs-title-selected-bottom-custom,
+.treetable-tabs-selection-tracker-bottom-custom,
+.treetable-tabs-title-selected-top-custom,
+.treetable-tabs-selection-tracker-top-custom {
+    border-color: #a4bed4;
+    border-bottom: 1px solid #fff;
+    background: #fff
+}
+
+.treetable-grid-cell-sort-alt-custom,
+.treetable-grid-cell-filter-alt-custom,
+.treetable-grid-cell-pinned-custom,
+.treetable-grid-cell-alt-custom,
+.treetable-grid-cell-sort-custom {
+    background-color: #e7eef8
+}
+
+.treetable-grid-cell-selected-custom {
+    background-color: #cfdde9!important;
+    color: #2b465e!important
+}
+
+.treetable-grid-cell-hover-custom {
+    background-color: #cfdde9!important
+}
+
+.treetable-menu-vertical-custom {
+    background: #e0e9f5
+}
+
+.treetable-layout-custom {
+    background-color: #a4bed4
+}
+
+.treetable-widget-custom {
+    font-family: Verdana
+}
+
+.treetable-widget-content-custom {
+    color: #222;
+    text-shadow: none;
+    border-color: #a4bed4;
+    background: #fff;
+    font-family: Verdana
+}
+
+.treetable-widget-header-custom,
+.treetable-grid-custom .treetable-widget-header-custom {
+    color: #222;
+    text-shadow: none;
+    border-color: #a4bed4;
+    background-color: #e0e9f5;
+    background-image: -moz-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: -ms-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: -o-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#e0e9f5), to(#e0e9f5));
+    background-image: -webkit-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: linear-gradient(to bottom, #e0e9f5, #e0e9f5);
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    font-family: Verdana
+}
+
+.treetable-grid-column-menubutton-custom,
+.treetable-widget-custom.treetable-grid-column-menubutton-custom {
+    border-color: #a4bed4
+}
+
+.treetable-grid-cell-custom,
+.treetable-widget-custom .treetable-grid-cell-custom {
+    background-color: #fff;
+    color: #222;
+    text-shadow: none
+}
+
+.treetable-fill-state-normal-custom {
+    color: #222;
+    text-shadow: none;
+    border-color: #a4bed4;
+    background-color: #e0e9f5;
+    background-image: -moz-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: -ms-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: -o-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#e0e9f5), to(#e0e9f5));
+    background-image: -webkit-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: linear-gradient(to bottom, #e0e9f5, #e0e9f5);
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    font-family: Verdana
+}
+
+.treetable-button-custom {
+    color: #222;
+    text-shadow: none;
+    border-color: #a4bed4;
+    background-color: #e0e9f5;
+    background-image: -moz-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: -ms-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: -o-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#e0e9f5), to(#e0e9f5));
+    background-image: -webkit-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: linear-gradient(to bottom, #e0e9f5, #e0e9f5);
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    font-family: Verdana
+}
+
+.treetable-grid-selectionarea-custom {
+    border-color: #a4bed4;
+    background-color: #e0e9f5
+}
+
+.treetable-widget-custom .treetable-grid-cell-sort-custom,
+.treetable-widget-custom .treetable-grid-cell-filter-custom,
+.treetable-widget-custom .treetable-grid-cell-pinned-custom,
+.treetable-grid-cell-sort-custom,
+.treetable-grid-cell-filter-custom,
+.treetable-grid-cell-pinned-custom {
+    background-color: #e7eef8;
+    color: #222;
+    text-shadow: none
+}
+
+.treetable-widget-custom .treetable-grid-cell-alt-custom,
+.treetable-widget-custom .treetable-grid-cell-sort-alt-custom,
+.treetable-widget-custom .treetable-grid-cell-pinned-alt-custom,
+.treetable-widget-custom .treetable-grid-cell-filter-alt-custom,
+.treetable-grid-cell-alt-custom,
+.treetable-grid-cell-sort-alt-custom,
+.treetable-grid-cell-filter-alt-custom {
+    background-color: #e7eef8;
+    color: #222;
+    text-shadow: none
+}
+
+.treetable-fill-state-hover-custom,
+.treetable-widget-custom .treetable-grid-cell-hover-custom {
+    color: #222;
+    text-shadow: none;
+    border-color: #a4bed4;
+    background-color: #cfdde9;
+    background-image: -moz-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -ms-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -o-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#cfdde9), to(#cfdde9));
+    background-image: -webkit-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: linear-gradient(to bottom, #cfdde9, #cfdde9);
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    font-family: Verdana
+}
+
+.treetable-fill-state-pressed-custom,
+.treetable-widget-custom .treetable-grid-cell-selected-custom {
+    color: #222;
+    text-shadow: none;
+    border-color: #5e8cb3;
+    background-color: #cfdde9;
+    background-image: -moz-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -ms-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -o-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#cfdde9), to(#cfdde9));
+    background-image: -webkit-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: linear-gradient(to bottom, #cfdde9, #cfdde9);
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    font-family: Verdana
+}
+
+.treetable-switchbutton-label-on-custom {
+    color: #222;
+    text-shadow: none;
+    border-color: #5e8cb3;
+    background-color: #cfdde9;
+    background-image: -moz-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -ms-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -o-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#cfdde9), to(#cfdde9));
+    background-image: -webkit-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: linear-gradient(to bottom, #cfdde9, #cfdde9);
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box
+}
+
+.treetable-tabs-title-selected-top-custom,
+.treetable-tabs-selection-tracker-top-custom {
+    color: #222;
+    text-shadow: none;
+    border-color: #a4bed4;
+    border-bottom: 1px solid #fff;
+    background-image: none;
+    background-color: #fff
+}
+
+.treetable-tabs-title-selected-bottom-custom,
+.treetable-tabs-selection-tracker-bottom-custom {
+    color: #222;
+    text-shadow: none;
+    border-color: #a4bed4;
+    border-top: 1px solid #fff;
+    background-image: none;
+    background-color: #fff
+}
+
+.treetable-splitter-splitbar-hover-custom {
+    background: #cfdde9
+}
+
+.treetable-splitter-splitbar-vertical-custom,
+.treetable-splitter-splitbar-horizontal-custom,
+.treetable-slider-track-horizontal-custom,
+.treetable-slider-track-vertical-custom {
+    background: #e0e9f5
+}
+
+.treetable-splitter-collapse-button-horizontal-custom,
+.treetable-splitter-collapse-button-vertical-custom,
+.treetable-slider-rangebar-custom {
+    background: #cfdde9
+}
+
+.treetable-scrollbar-state-normal-custom {
+    background-color: #e0e9f5;
+    border-color: #e0e9f5
+}
+
+.treetable-grid-bottomright-custom,
+.treetable-panel-bottomright-custom,
+.treetable-listbox-bottomright-custom {
+    background-color: #e0e9f5
+}
+
+.treetable-scrollbar-thumb-state-normal-custom {
+    background-color: #e0e9f5;
+    background-color: #e0e9f5;
+    background-image: -moz-linear-gradient(left, #e0e9f5, #e0e9f5);
+    background-image: -ms-linear-gradient(left, #e0e9f5, #e0e9f5);
+    background-image: -o-linear-gradient(left, #e0e9f5, #e0e9f5);
+    background-image: -webkit-gradient(linear, left top, right top, from(#e0e9f5), to(#e0e9f5));
+    background-image: -webkit-linear-gradient(left, #e0e9f5, #e0e9f5);
+    background-image: linear-gradient(left, #e0e9f5, #e0e9f5);
+    background-image: linear-gradient(left right, #e0e9f5, #e0e9f5)
+}
+
+.treetable-scrollbar-thumb-state-normal-horizontal-custom {
+    background-color: #e0e9f5;
+    background-color: #e0e9f5;
+    background-image: -moz-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: -ms-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: -o-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#e0e9f5), to(#e0e9f5));
+    background-image: -webkit-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: linear-gradient(to bottom, #e0e9f5, #e0e9f5);
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box
+}
+
+.treetable-scrollbar-thumb-state-hover-custom {
+    background-color: #cfdde9;
+    border-color: #cfdde9;
+    background-image: -moz-linear-gradient(left, #cfdde9, #cfdde9);
+    background-image: -ms-linear-gradient(left, #cfdde9, #cfdde9);
+    background-image: -o-linear-gradient(left, #cfdde9, #cfdde9);
+    background-image: -webkit-gradient(linear, left top, right top, from(#cfdde9), to(#cfdde9));
+    background-image: -webkit-linear-gradient(left, #cfdde9, #cfdde9);
+    background-image: linear-gradient(left, #cfdde9, #cfdde9);
+    background-image: linear-gradient(left right, #cfdde9, #cfdde9)
+}
+
+.treetable-scrollbar-thumb-state-hover-horizontal-custom {
+    background-color: #cfdde9;
+    border-color: #cfdde9;
+    background-image: -moz-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -ms-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -o-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#cfdde9), to(#cfdde9));
+    background-image: -webkit-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: linear-gradient(to bottom, #cfdde9, #cfdde9);
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box
+}
+
+.treetable-scrollbar-thumb-state-pressed-custom {
+    background-color: #cfdde9;
+    border-color: #cfdde9;
+    background-image: -moz-linear-gradient(left, #cfdde9, #cfdde9);
+    background-image: -ms-linear-gradient(left, #cfdde9, #cfdde9);
+    background-image: -o-linear-gradient(left, #cfdde9, #cfdde9);
+    background-image: -webkit-gradient(linear, left top, right top, from(#cfdde9), to(#cfdde9));
+    background-image: -webkit-linear-gradient(left, #cfdde9, #cfdde9);
+    background-image: linear-gradient(left, #cfdde9, #cfdde9);
+    background-image: linear-gradient(left right, #cfdde9, #cfdde9)
+}
+
+.treetable-scrollbar-thumb-state-pressed-horizontal-custom {
+    background-color: #cfdde9;
+    border-color: #cfdde9;
+    background-image: -moz-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -ms-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -o-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#cfdde9), to(#cfdde9));
+    background-image: -webkit-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: linear-gradient(to bottom, #cfdde9, #cfdde9);
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box
+}
+
+.treetable-scrollbar-button-state-normal-custom {
+    background-color: #e0e9f5;
+    background-image: -moz-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: -ms-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: -o-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#e0e9f5), to(#e0e9f5));
+    background-image: -webkit-linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: linear-gradient(top, #e0e9f5, #e0e9f5);
+    background-image: linear-gradient(to bottom, #e0e9f5, #e0e9f5);
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box
+}
+
+.treetable-scrollbar-button-state-hover-custom {
+    background-color: #cfdde9;
+    border-color: #a4bed4;
+    background-image: -moz-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -ms-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -o-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#cfdde9), to(#cfdde9));
+    background-image: -webkit-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: linear-gradient(to bottom, #cfdde9, #cfdde9);
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box
+}
+
+.treetable-scrollbar-button-state-pressed-custom {
+    background-color: #cfdde9;
+    border-color: #5e8cb3;
+    background-image: -moz-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -ms-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -o-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: -webkit-gradient(linear, center top, center bottom, from(#cfdde9), to(#cfdde9));
+    background-image: -webkit-linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: linear-gradient(top, #cfdde9, #cfdde9);
+    background-image: linear-gradient(to bottom, #cfdde9, #cfdde9);
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box
+}
+
+.treetable-radiobutton-check-checked-custom {
+    background: #111;
+    width: 7px;
+    height: 7px;
+    margin-left: 2px;
+    margin-top: 2px;
+    border-width: 1px;
+    border-style: solid
+}
+
+.treetable-rc-tl-custom {
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-radius-topleft: 3px;
+    border-radius-topleft: 3px
+}
+
+.treetable-rc-tr-custom {
+    -moz-border-radius-topright: 3px;
+    -webkit-border-radius-topright: 3px;
+    border-radius-topright: 3px
+}
+
+.treetable-rc-bl-custom {
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-radius-bottomleft: 3px;
+    border-radius-bottomleft: 3px
+}
+
+.treetable-rc-br-custom {
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-radius-bottomright: 3px;
+    border-radius-bottomright: 3px
+}
+
+.treetable-rc-t-custom {
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px
+}
+
+.treetable-rc-b-custom {
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px
+}
+
+.treetable-rc-r-custom {
+    -moz-border-radius-topright: 3px;
+    -webkit-border-top-right-radius: 3px;
+    border-top-right-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    -webkit-border-bottom-right-radius: 3px;
+    border-bottom-right-radius: 3px
+}
+
+.treetable-rc-l-custom {
+    -moz-border-radius-topleft: 3px;
+    -webkit-border-top-left-radius: 3px;
+    border-top-left-radius: 3px;
+    -moz-border-radius-bottomleft: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    border-bottom-left-radius: 3px
+}
+
+.treetable-radiobutton-default-custom,
+.treetable-radiobutton-custom,
+.treetable-radiobutton-check-checked-custom,
+.treetable-radiobutton-hover-custom,
+.treetable-radiobutton-check-indeterminate-custom,
+.treetable-radiobutton-check-indeterminate-disabled-custom,
+.treetable-slider-button-custom {
+    -moz-border-radius: 100%!important;
+    -webkit-border-radius: 100%!important;
+    border-radius: 100%!important
+}
+
+.treetable-rc-all-custom,
+.treetable-tooltip-custom,
+.treetable-tooltip-text-custom,
+.treetable-tooltip-main-custom {
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px
+}
+
+.treetable-grid-column-sortascbutton-custom,
+.treetable-expander-arrow-bottom-custom,
+.treetable-window-collapse-button-custom,
+.treetable-menu-item-arrow-up-custom,
+.treetable-menu-item-arrow-top-up-custom,
+.treetable-icon-arrow-up-custom {
+    background-image: url('images/icon-up.png')
+}
+
+.treetable-icon-arrow-up-hover-custom {
+    background-image: url('images/icon-up.png')
+}
+
+.treetable-menu-item-arrow-up-selected-custom,
+.treetable-icon-arrow-up-selected-custom.treetable-expander-arrow-expanded-custom {
+    background-image: url('images/icon-up.png')
+}
+
+.treetable-grid-column-menubutton-custom,
+.treetable-grid-column-sortdescbutton-custom,
+.treetable-expander-arrow-top-custom,
+.treetable-window-collapse-button-collapsed-custom,
+.treetable-menu-item-arrow-down-custom,
+.treetable-menu-item-arrow-down-custom,
+.treetable-tree-item-arrow-expand-custom,
+.treetable-grid-group-expand-custom,
+.treetable-widget-custom .treetable-grid-group-expand-custom,
+.treetable-icon-arrow-down-custom {
+    background-image: url('images/icon-down.png')
+}
+
+.treetable-icon-arrow-down-hover-custom {
+    background-image: url('images/icon-down.png')
+}
+
+.treetable-menu-item-arrow-down-selected-custom,
+.treetable-icon-arrow-down-selected-custom {
+    background-image: url('images/icon-down.png')
+}
+
+.treetable-tabs-arrow-left-custom,
+.treetable-menu-item-arrow-top-left-custom,
+.treetable-grid-group-collapse-rtl-custom,
+.treetable-widget-custom .treetable-grid-group-collapse-rtl-custom,
+.treetable-icon-arrow-left-custom,
+.treetable-icon-arrow-down-left-custom {
+    background-image: url('images/icon-left.png')
+}
+
+.treetable-icon-arrow-left-hover-custom {
+    background-image: url('images/icon-left.png')
+}
+
+.treetable-menu-vertical-custom {
+    background: #fff
+}
+
+.treetable-menu-item-arrow-left-selected-custom,
+.treetable-icon-arrow-left-selected-custom {
+    background-image: url('images/icon-left.png')
+}
+
+.treetable-tabs-arrow-right-custom,
+.treetable-menu-item-arrow-top-right-custom,
+.treetable-menu-item-arrow-collapse-custom,
+.treetable-grid-group-collapse-custom,
+.treetable-widget-custom .treetable-grid-group-collapse-custom,
+.treetable-icon-arrow-right-custom {
+    background-image: url('images/icon-right.png')
+}
+
+.treetable-icon-arrow-right-hover-custom {
+    background-image: url('images/icon-right.png')
+}
+
+.treetable-menu-item-arrow-right-selected-custom,
+.treetable-icon-arrow-right-selected-custom {
+    background-image: url('images/icon-right.png')
+}
+
+.treetable-window-close-button-custom,
+.treetable-tabs-close-button-custom,
+.icon-close-custom {
+    background-image: url('images/close.png')
+}
+
+.treetable-tabs-close-button-selected-custom {
+    background-image: url('images/close.png')
+}
+
+.treetable-tabs-close-button-hover-custom {
+    background-image: url('images/close.png')
+}
+
+.treetable-widget-custom .treetable-grid-column-header-custom,
+.treetable-widget-custom .treetable-grid-cell-custom,
+.treetable-widget-custom .treetable-grid-group-cell-custom,
+.treetable-grid-cell-custom {
+    border-color: #a4bed4
+}
+
+.treetable-checkbox-check-checked-custom {
+    background-image: url('images/check_black.png')
+}
+
+.treetable-checkbox-check-indeterminate-custom {
+    background-image: url('images/check_indeterminate_black.png')
+}
+
+.treetable-tooltip-custom,
+.treetable-tooltip-main-custom {
+    color: #222;
+    text-shadow: none;
+    border-color: #a4bed4;
+    background-color: #e0e9f5
+}
+
+.treetable-combobox-content-custom,
+.treetable-input-custom {
+    color: #222;
+    text-shadow: none;
+    border-color: #a4bed4;
+    background-color: #fff
+}
+
+.treetable-combobox-input-custom {
+    color: #222;
+    text-shadow: none
+}
+
+.treetable-input-content-custom {
+    color: #222;
+    text-shadow: none;
+    background-color: #fff
+}
+
+.treetable-fill-state-focus-custom,
+.treetable-popup-custom .treetable-fill-state-focus-custom {
+    border-color: #477396
+}
+
+.treetable-popup-custom.treetable-listbox-custom,
+.treetable-popup-custom.treetable-calendar-custom,
+.treetable-menu-dropdown-custom,
+.treetable-popup-custom.treetable-dropdownbutton-popup-custom {
+    color: #222;
+    text-shadow: none;
+    border-color: #477396;
+    background-color: #fff
+}
+
+.treetable-menu-item-arrow-right-custom,
+.treetable-tree-item-arrow-collapse-custom {
+    background-image: url('images/icon-right.png')
+}
+
+.treetable-menu-item-arrow-left-custom {
+    background-image: url('images/icon-left.png')
+}
+
+.treetable-tree-item-arrow-expand-custom {
+    background-image: url('images/icon-down.png')
+}
+
+.treetable-scrollbar-custom .treetable-icon-arrow-up-custom {
+    background-image: url('images/icon-up.png')
+}
+
+.treetable-scrollbar-custom .treetable-icon-arrow-left-custom {
+    background-image: url('images/icon-left.png')
+}
+
+.treetable-scrollbar-custom .treetable-icon-arrow-right-custom {
+    background-image: url('images/icon-right.png')
+}
+
+.treetable-scrollbar-custom .treetable-icon-arrow-bottom-custom {
+    background-image: url('images/icon-bottom.png')
+}
+
+.treetable-scrollbar-custom .treetable-icon-arrow-up-hover-custom {
+    background-image: url('images/icon-up.png')
+}
+
+.treetable-scrollbar-custom .treetable-icon-arrow-left-hover-custom {
+    background-image: url('images/icon-left.png')
+}
+
+.treetable-scrollbar-custom .treetable-icon-arrow-right-hover-custom {
+    background-image: url('images/icon-right.png')
+}
+
+.treetable-scrollbar-custom .treetable-icon-arrow-bottom-hover-custom {
+    background-image: url('images/icon-bottom.png')
+}
+
+.treetable-scrollbar-custom .treetable-icon-arrow-up-selected-custom {
+    background-image: url('images/icon-up.png')
+}
+
+.treetable-scrollbar-custom .treetable-icon-arrow-left-selected-custom {
+    background-image: url('images/icon-left.png')
+}
+
+.treetable-scrollbar-custom .treetable-icon-arrow-right-selected-custom {
+    background-image: url('images/icon-right.png')
+}
+
+.treetable-scrollbar-custom .treetable-icon-arrow-bottom-selected-custom {
+    background-image: url('images/icon-bottom.png')
+}
+
+.treetable-widget-custom .treetable-grid-cell-custom,
+.treetable-listitem-state-normal-custom,
+.treetable-menu-item-normal-custom,
+.treetable-tree-item-normal-custom,
+.treetable-calendar-cell-custom,
+.treetable-grid-cell-custom,
+.treetable-menu-vertical-custom .treetable-menu-item-top-normal-custom,
+.treetable-input-popup-custom .treetable-fill-state-normal-custom {
+    font-family: Verdana
+}
+
+.treetable-widget-custom .treetable-grid-cell-hover-custom,
+.treetable-listitem-state-hover-custom,
+.treetable-menu-item-hover-custom,
+.treetable-tree-item-hover-custom,
+.treetable-calendar-cell-hover-custom,
+.treetable-grid-cell-hover-custom,
+.treetable-menu-vertical-custom .treetable-menu-item-top-hover-custom,
+.treetable-input-popup-custom .treetable-fill-state-hover-custom,
+.treetable-input-button-header-custom,
+.treetable-input-popup-custom .treetable-fill-state-pressed-custom,
+.treetable-input-button-header-custom {
+    font-family: Verdana
+}
+
+.treetable-widget-custom .treetable-grid-cell-selected-custom,
+.treetable-listitem-state-selected-custom,
+.treetable-menu-item-selected-custom,
+.treetable-tree-item-selected-custom,
+.treetable-calendar-cell-selected-custom,
+.treetable-grid-cell-selected-custom,
+.treetable-menu-vertical-custom .treetable-menu-item-top-selected-custom,
+.treetable-grid-selectionarea-custom {
+    font-family: Verdana
+}
+
+.treetable-icon-calendar-custom {
+    background-image: url('images/icon-calendar.png')
+}
+
+.treetable-icon-calendar-hover-custom {
+    background-image: url('images/icon-calendar.png')
+}
+
+.treetable-icon-calendar-pressed-custom {
+    background-image: url('images/icon-calendar.png')
+}
+
+.treetable-icon-first-custom {
+    background-image: url('images/icon-first.png')
+}
+
+.treetable-icon-first-hover-custom {
+    background-image: url('images/icon-first.png')
+}
+
+.treetable-icon-first-selected-custom {
+    background-image: url('images/icon-first.png')
+}
+
+.treetable-icon-last-custom {
+    background-image: url('images/icon-last.png')
+}
+
+.treetable-icon-last-hover-custom {
+    background-image: url('images/icon-last.png')
+}
+
+.treetable-icon-last-selected-custom {
+    background-image: url('images/icon-last.png')
+}
+
+.treetable-grid-cell-custom.treetable-grid-cell-custom>.treetable-grid-group-expand-custom {
+    background-image: url('images/icon-down.png')
+}
+
+.treetable-grid-cell-custom.treetable-grid-cell-hover-custom>.treetable-grid-group-expand-custom {
+    background-image: url('images/icon-down.png')
+}
+
+.treetable-grid-cell-custom.treetable-grid-cell-selected-custom>.treetable-grid-group-expand-custom {
+    background-image: url('images/icon-down.png')
+}
+
+.treetable-grid-cell-custom.treetable-grid-cell-custom>.treetable-grid-group-collapse-custom {
+    background-image: url('images/icon-right.png')
+}
+
+.treetable-grid-cell-custom.treetable-grid-cell-hover-custom>.treetable-grid-group-collapse-custom {
+    background-image: url('images/icon-right.png')
+}
+
+.treetable-grid-cell-custom.treetable-grid-cell-selected-custom>.treetable-grid-group-collapse-custom {
+    background-image: url('images/icon-right.png')
+}
+
+.treetable-grid-cell-custom.treetable-grid-cell-custom>.treetable-grid-group-expand-rtl-custom {
+    background-image: url('images/icon-down.png')
+}
+
+.treetable-grid-cell-custom.treetable-grid-cell-hover-custom>.treetable-grid-group-expand-rtl-custom {
+    background-image: url('images/icon-down.png')
+}
+
+.treetable-grid-cell-custom.treetable-grid-cell-selected-custom>.treetable-grid-group-expand-rtl-custom {
+    background-image: url('images/icon-down.png')
+}
+
+.treetable-grid-cell-custom.treetable-grid-cell-custom>.treetable-grid-group-collapse-rtl-custom {
+    background-image: url('images/icon-left.png')
+}
+
+.treetable-grid-cell-custom.treetable-grid-cell-hover-custom>.treetable-grid-group-collapse-rtl-custom {
+    background-image: url('images/icon-left.png')
+}
+
+.treetable-grid-cell-custom.treetable-grid-cell-selected-custom>.treetable-grid-group-collapse-rtl-custom {
+    background-image: url('images/icon-left.png')
+}
+
+.treetable-grid-column-menubutton-custom,
+.treetable-grid-column-sortdescbutton-custom {
+    background-image: url('images/icon-down.png')
+}
+
+.treetable-grid-column-sortascbutton-custom {
+    background-image: url('images/icon-up.png')
+}
+
+.treetable-icon-delete-custom {
+    background-image: url('images/icon-delete.png')
+}
+
+.treetable-icon-edit-custom {
+    background-image: url('images/icon-edit.png')
+}
+
+.treetable-icon-save-custom {
+    background-image: url('images/icon-save.png')
+}
+
+.treetable-icon-cancel-custom {
+    background-image: url('images/icon-cancel.png')
+}
+
+.treetable-icon-search-custom {
+    background-image: url('images/icon-search.png')
+}
+
+.treetable-icon-plus-custom {
+    background-image: url('images/icon-plus.png')
+}

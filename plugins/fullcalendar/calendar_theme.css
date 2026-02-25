@@ -1,0 +1,272 @@
+﻿  fc-scroller {
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+        }
+
+        .fc-month-view .fc-scroller {
+            height: auto !important;
+        }
+
+        .control-panel .event-form-title {
+            font-size: 16px !important;
+            margin-top: 4px !important;
+            font-weight: 400 !important;
+            margin-bottom: 10px !important;
+        }
+
+        .control-panel.calendar .fc-button {
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+            box-shadow: none !important;
+            text-shadow: none !important;
+            border: 0 #ddd !important;
+            height: 35px !important;
+            padding: 5px 8px 8px !important;
+            margin-left: 2px !important;
+            background: 0 0 !important;
+            color: #fff !important;
+            top: -48px !important;
+            outline: 0 !important;
+            border-style: none solid !important;
+        }
+
+        .control-panel.calendar .fc-toolbar {
+            margin-bottom: 0 !important;
+        }
+
+            .control-panel.calendar .fc-toolbar h2 {
+                margin-top: 3px !important;
+                font-size: 17px !important;
+            }
+
+        .control-panel.calendar .fc-button .fc-icon-left-single-arrow,
+        .control-panel.calendar .fc-button .fc-icon-right-single-arrow {
+            font-family: FontAwesome !important;
+            font-size: 16px !important;
+            display: inline-block !important;
+        }
+
+        .control-panel.calendar .fc-header {
+            margin-bottom: -21px !important;
+        }
+
+        .control-panel.calendar .fc-button-prev {
+            padding-right: 10px !important;
+            padding-left: 8px !important;
+        }
+
+        .control-panel.calendar .fc-button-next {
+            padding-right: 8px !important;
+            padding-left: 10px !important;
+        }
+
+        .control-panel.calendar .fc-button .fc-icon {
+            height: 20px !important;
+            top: -5px !important;
+        }
+
+        .control-panel.calendar .fc-button.fc-state-active,
+        .control-panel.calendar .fc-button.fc-state-hover {
+            color: #666 !important;
+            background-color: #fff !important;
+        }
+
+        .control-panel.calendar .fc-button.fc-state-disabled {
+            color: #ddd !important;
+        }
+
+        .control-panel.calendar .fc-button .fc-icon-left-single-arrow:after {
+            content: "" !important;
+            margin: 0 !important;
+        }
+
+        .control-panel.calendar .fc-button .fc-icon-left-single-arrow:before {
+            content: "\f104" !important;
+        }
+
+        .control-panel.calendar .fc-button .fc-icon-right-single-arrow:after {
+            margin: 0 !important;
+            content: "" !important;
+        }
+
+        .control-panel.calendar .fc-button .fc-icon-right-single-arrow:before {
+            content: "\f105" !important;
+        }
+
+        .control-panel.calendar .fc-text-arrow {
+            font-size: 22px !important;
+            font-family: "Courier New", Courier, monospace !important;
+            vertical-align: baseline !important;
+        }
+
+        .control-panel.calendar .fc-event {
+            border: 0 !important;
+            background-color: #69a4e0 ;
+            color: #fff !important;
+        }
+
+            .control-panel.calendar .fc-event .fc-content {
+                border: 0 !important;
+                padding: 5px 7px !important;
+            }
+
+            .control-panel.calendar .fc-event .fc-time {
+                float: left !important;
+                text-align: left !important;
+                color: #fff !important;
+                font-size: 14px !important;
+                font-weight: 300 !important;
+                padding-right: 5px !important;
+            }
+
+            .control-panel.calendar .fc-event .fc-title {
+                text-align: left !important;
+                float: left !important;
+                color: #fff !important;
+                font-size: 14px !important;
+                font-weight: 300 !important;
+            }
+
+        .control-panel.calendar .fc-header-title h2 {
+            font-size: 14px !important;
+            line-height: 20px !important;
+            font-weight: 400 !important;
+            color: #111 !important;
+        }
+
+        .control-panel.calendar .fc-widget-header {
+            background-image: none !important;
+            filter: none !important;
+            background-color: #eee !important;
+            text-transform: uppercase !important;
+            font-weight: 300 !important;
+        }
+
+        .control-panel.calendar.light .fc-button {
+            top: -60px !important;
+            color: #666 !important;
+            text-transform: uppercase !important;
+            font-size: 12px !important;
+            /*padding-bottom: 35px !important*/
+        }
+
+            .control-panel.calendar.light .fc-button .fc-text-arrow {
+                margin-top: -6px !important;
+                display: inline-block !important;
+            }
+            .control-panel.calendar.light .fc-popover .fc-header{
+                padding:5px;
+            }
+            .control-panel.calendar.light .fc-popover .fc-body{
+                padding:15px;
+            }
+        /*Moderate Cyan Color*/
+        .control-panel.calendar.light.cyan .fc-button.fc-state-active {
+            color: #00BCD4 !important; /*#36c6d3 !important;*/
+            border: 1px solid #00BCD4 !important;
+        }
+
+        .control-panel.calendar.light.cyan .fc-button.fc-state-hover {
+            color: #fff !important;
+            background: #00BCD4 !important;
+        }
+        /* Sunglo */
+        .control-panel.calendar.light.sunglo .fc-button.fc-state-active {
+            color: #E26A6A !important;
+            border: 1px solid #E26A6A !important;
+        }
+
+        .control-panel.calendar.light.sunglo .fc-button.fc-state-hover {
+            color: #fff !important;
+            background: #E26A6A !important;
+        }
+        /*Purple  */
+        .control-panel.calendar.light.purple-light .fc-button.fc-state-active {
+            color: #BE90D4 !important;
+            border: 1px solid #BE90D4 !important;
+        }
+
+        .control-panel.calendar.light.purple-light .fc-button.fc-state-hover {
+            color: #fff !important;
+            background: #BE90D4 !important;
+        }
+
+        /*Turquoise */
+        .control-panel.calendar.light.turquoise .fc-button.fc-state-active {
+            color: #36D7B7 !important;
+            border: 1px solid #36D7B7 !important;
+        }
+
+        .control-panel.calendar.light.turquoise .fc-button.fc-state-hover {
+            color: #fff !important;
+            background: #36D7B7 !important;
+        }
+
+        .control-panel.calendar.light .fc-button.fc-state-disabled {
+            color: #aaa !important;
+        }
+
+
+        .control-panel.calendar .mobile .fc-button {
+            padding: 0 6px 20px !important;
+            margin-left: 2px !important;
+            border: 0 !important;
+            background-color: #ddd !important;
+            background-image: none !important;
+            -webkit-box-shadow: none !important;
+            -moz-box-shadow: none !important;
+            box-shadow: none !important;
+            -webkit-border-radius: 0 !important;
+            -moz-border-radius: 0 !important;
+            border-radius: 0 !important;
+            color: #000 !important;
+            text-shadow: none !important;
+            text-align: center !important;
+        }
+
+            /*.control-panel.calendar .mobile .fc-button.fc-state-active,
+        .control-panel.calendar .mobile .fc-button.fc-state-hover {
+            background-color: #eee !important
+        }*/
+
+            .control-panel.calendar .mobile .fc-button.fc-state-disabled {
+                color: #bbb !important;
+            }
+
+        .control-panel.calendar .mobile .fc-button-prev {
+            margin-right: 5px !important;
+            margin-top: -2px !important;
+        }
+
+        .control-panel.calendar .mobile .fc-button-next {
+            margin-right: 0 !important;
+            margin-top: -2px !important;
+        }
+
+        .control-panel.calendar .mobile .fc-header-space {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 0 !important;
+        }
+
+        .control-panel.calendar .mobile .fc-header-left {
+            position: absolute !important;
+            z-index: 10 !important;
+        }
+
+            .control-panel.calendar .mobile .fc-header-left .fc-button {
+                top: -2px !important;
+            }
+
+        .control-panel.calendar .mobile .fc-header-right {
+            position: relative !important;
+            right: 0 !important;
+        }
+
+            .control-panel.calendar .mobile .fc-header-right .fc-button {
+                top: 35px !important;
+            }
+
+        .control-panel.calendar .mobile .fc-content {
+            margin-top: 53px !important;
+        }
