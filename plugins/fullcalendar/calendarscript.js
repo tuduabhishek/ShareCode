@@ -6,7 +6,7 @@ var globalAllDay;
 /********** Function to be called when a meeting is updated in DB to update meeting on calendar *********/
 function updateEvent(event, element) {
     //alert(event.description);
-    
+
     if ($(this).data("qtip")) $(this).qtip("destroy");
 
     currentUpdateEvent = event;
@@ -17,8 +17,8 @@ function updateEvent(event, element) {
     $("[id*=hdnEventId]").val(event.id);
     $("#eventStart").text("" + event.start.toLocaleString());
     $("#eventEnd").text("" + event.end.toLocaleString());
-    $("[id*=txtUpdStartDate]").val(event.Actualstart) ;
-    $("[id*=txtUpdEndDate]").val(event.Actualend) ;
+    $("[id*=txtUpdStartDate]").val(event.Actualstart);
+    $("[id*=txtUpdEndDate]").val(event.Actualend);
     if (event.listAttach.length > 0) {
         $.each(event.listAttach, function (index) {
             if ($(this)[0].attach_type == "MOM") {
@@ -51,22 +51,22 @@ function updateEvent(event, element) {
 function addSuccess(addResult) {
     // if addresult is -1, means event was not added
     //    alert("added key: " + addResult);
-    
-   
+
+
     if (addResult.id != -1) {
         //$('#calendar').fullCalendar('renderEvent',
-		//				{
-		//				    title: $("#addEventName").val(),
-		//				    start: addStartDate,
-		//				    end: addEndDate,
-		//				    id: addResult,
-		//				    description: $("#addEventDesc").val(),
-		//				    allDay: globalAllDay,
-		//				    backgroundColor: backColor,
-		//				    listAttach: attachments
-		//				},
-		//				true // make the event "stick"
-		//			);
+        //				{
+        //				    title: $("#addEventName").val(),
+        //				    start: addStartDate,
+        //				    end: addEndDate,
+        //				    id: addResult,
+        //				    description: $("#addEventDesc").val(),
+        //				    allDay: globalAllDay,
+        //				    backgroundColor: backColor,
+        //				    listAttach: attachments
+        //				},
+        //				true // make the event "stick"
+        //			);
         $('#calendar').fullCalendar('renderEvent', addResult, true);// make the event "stick"         
 
         $('#calendar').fullCalendar('unselect');
@@ -79,16 +79,16 @@ function selectDate(start, end, allDay) {
     //var check = new Date(start.format('YYYY-MM-DD'));// $.fullCalendar.formatDate(start, 'yyyy-MM-dd');
     //var today = new Date();// $.fullCalendar.formatDate(new Date(), 'yyyy-MM-dd');
     //if (check >= today) {
-        // Its a right date
-        showmodalAdd();
-        $("#addEventStartDate").text("" + start.toLocaleString());
-        $("#addEventEndDate").text("" + end.toLocaleString());
-        addStartDate = start;
-        addEndDate = end;
-        globalAllDay = allDay;
-   // }
-   
-   
+    // Its a right date
+    showmodalAdd();
+    $("#addEventStartDate").text("" + start.toLocaleString());
+    $("#addEventEndDate").text("" + end.toLocaleString());
+    addStartDate = start;
+    addEndDate = end;
+    globalAllDay = allDay;
+    // }
+
+
     //alert(allDay);
 }
 /********** Function to update when meeting event is drag and dropped *********/
@@ -107,7 +107,7 @@ function updateEventOnDropResize(event, allDay) {
     else {
         eventToUpdate.end = event.end;
 
-        
+
     }
 
     var endDate;
@@ -123,7 +123,7 @@ function updateEventOnDropResize(event, allDay) {
     eventToUpdate.end = eventToUpdate.end.toJSON(); //endDate;
     eventToUpdate.allDay = event.allDay;
 
-    
+
     $.ajax({
         type: 'POST',
         contentType: 'application/json; charset=utf-8',
@@ -187,10 +187,10 @@ function qTipText(start, end, description) {
 }
 
 $(document).ready(function () {
-   
+
     /********** Update Meeting button click function to update meeting *********/
     $("body").on("click", "[id*=btnUpdateMeeting]", function () {
-       
+
         var spnActualstart = $("[id*=txtUpdStartDate]").val();
         var spnActualend = $("[id*=txtUpdEndDate]").val();
         var momData = $('#MainContent_fuMoM_hdnFile').val() || JSON.stringify({});;
@@ -220,7 +220,7 @@ $(document).ready(function () {
             alert("please enter characters: A to Z, a to z, 0 to 9, spaces");
         }
         else {
-            
+
             $.ajax({
                 type: 'POST',
                 contentType: 'application/json; charset=utf-8',
@@ -228,7 +228,7 @@ $(document).ready(function () {
                 url: "ManageMeetings.aspx/UpdateEvent",
                 success: function (response) {
                     var cevent = JSON.parse(response.d);
-                  
+
                     if (cevent.id == -1) {
                         GenericMsgModal('error', "unable to update event with id:" + eventToUpdate.id + " title : " + eventToUpdate.title + " description : " + eventToUpdate.description);
                     } else {
@@ -250,7 +250,7 @@ $(document).ready(function () {
                         currentUpdateEvent.Actualstart = cevent.Actualstart;//spnActualstart;
                         currentUpdateEvent.Actualend = cevent.Actualend;//spnActualend;
                         currentUpdateEvent.listAttach = cevent.listAttach;
-                       
+
                         $('#calendar').fullCalendar('updateEvent', currentUpdateEvent);
 
                     }
@@ -276,37 +276,37 @@ $(document).ready(function () {
             confirmButtonText: 'Yes, delete it!',
             closeOnConfirm: true
         },
-           function () {
-               var eventId = $("[id*=hdnEventId]").val();
-               $.ajax({
-                   type: 'POST',
-                   contentType: 'application/json; charset=utf-8',
-                   data: '{"meetingId":"' + eventId + '"}',
-                   url: "ManageMeetings.aspx/DeleteMeeting",
-                   success: function (response) {
-                       if (response.d) {
-                           //  GenericMsgModal('success', 'meeting is deleted');
-                           $('#calendar').fullCalendar('removeEvents', eventId);
-                       } else {
-                           GenericMsgModal('error', 'meeting cannot be deleted now');
-                       }
+            function () {
+                var eventId = $("[id*=hdnEventId]").val();
+                $.ajax({
+                    type: 'POST',
+                    contentType: 'application/json; charset=utf-8',
+                    data: '{"meetingId":"' + eventId + '"}',
+                    url: "ManageMeetings.aspx/DeleteMeeting",
+                    success: function (response) {
+                        if (response.d) {
+                            //  GenericMsgModal('success', 'meeting is deleted');
+                            $('#calendar').fullCalendar('removeEvents', eventId);
+                        } else {
+                            GenericMsgModal('error', 'meeting cannot be deleted now');
+                        }
 
-                   },
-                   error: function (response) {
-                       //alert("Inside alert");
-                   }
-               });
-               //Close Modal
-               closeModal('updatedialog');
-           });
+                    },
+                    error: function (response) {
+                        //alert("Inside alert");
+                    }
+                });
+                //Close Modal
+                closeModal('updatedialog');
+            });
 
     });
 
-   
+
     /********** Add Meeting button click function to create meeting *********/
     $("body").on("click", "[id*=btnAddMeeting]", function () {
-       
-       
+
+
         var spnActualstart = $("[id*=txtActStartDate]").val();
         var spnActualend = $("[id*=txtActEndDate]").val();
         var momData = $('#MainContent_fuNewMoM_hdnFile').val() || JSON.stringify({});
@@ -331,7 +331,7 @@ $(document).ready(function () {
             GenericMsgModal('warning', "please enter characters: A to Z, a to z, 0 to 9, spaces");
         }
         else {
-            
+
             $.ajax({
                 type: 'POST',
                 contentType: 'application/json; charset=utf-8',
@@ -366,15 +366,15 @@ $(document).ready(function () {
             closeModal('addDialog');
         }
     });
-    
-  
+
+
     //var r = {
     //    left: 'prev,next today',
     //        center: 'title',
     //        right: 'month,agendaWeek,agendaDay'
     //};
 
-  
+
     /********** Window Resize event  *********/
     $(window).resize(function () {
 
@@ -396,7 +396,7 @@ $(document).ready(function () {
         //});
     });
 
-   
+
     var options = {
         weekday: "long", year: "numeric", month: "short",
         day: "numeric", hour: "2-digit", minute: "2-digit"
@@ -409,7 +409,7 @@ $(document).ready(function () {
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
-        var year =  null;
+        var year = null;
         if ($(this)[0].id < 4) {
             if (m < 3) {
                 year = y;
@@ -422,7 +422,7 @@ $(document).ready(function () {
             } else {
                 year = y;
             }
-            
+
         }
         var clickedDat = new Date(year, $(this)[0].id - 1, d);
         /// alert(clickedDat);
@@ -431,20 +431,20 @@ $(document).ready(function () {
         $('#calendar').fullCalendar('gotoDate', clickedDat);
     });
     /********** Initialise Calendar Control *********/
-   // InitCalendar();
+    // InitCalendar();
 
 });
 function activeTab() {
     var ul = $('.nav');
     var date = new Date();
     var d = date.getDate();
-    var m = date.getMonth() + 1 ;
+    var m = date.getMonth() + 1;
     if (m < 10) {
         m = '0' + m;
     }
     var y = date.getFullYear();
 
-    ul.find('li [id*=' + m  + ']').parent().addClass('active');
+    ul.find('li [id*=' + m + ']').parent().addClass('active');
 }
 /**********Function to Initialise Calendaer Control for View Only******************/
 function InitCalendarViewOnly() {
@@ -561,31 +561,39 @@ function GenericMsgModal(type, msg) {
 }
 /********** Function to show update meeting dialog *********/
 function showmodalUpdate() {
-    $('#updatedialog').modal({
-        'show': true
-    });
+    var modal = new bootstrap.Modal(document.getElementById('updatedialog'));
+    modal.show();
 }
 /********** Function to show add meeting dialog *********/
 function showmodalAdd() {
-    $('#addDialog').modal({
-        'show': true
-    });
+    var modal = new bootstrap.Modal(document.getElementById('addDialog'));
+    modal.show();
 }
 /********** Function to close any dialog *********/
 function closeAllModal() {
-    $(".modal").modal("hide");
+    $('.modal.show').each(function () {
+        var modalInstance = bootstrap.Modal.getInstance(this);
+        if (modalInstance) {
+            modalInstance.hide();
+        } else {
+            $(this).modal('hide');
+        }
+    });
     $('body').removeClass('modal-open');
     $('.modal-backdrop').remove();
 };
 /********** Function to close particular dialog *********/
 function closeModal(id) {
-    $('#' + id).modal("hide");
-    //$('body').removeClass('modal-open');
-    // $('.modal-backdrop').remove();
+    var modalElement = document.getElementById(id);
+    var modalInstance = bootstrap.Modal.getInstance(modalElement);
+    if (modalInstance) {
+        modalInstance.hide();
+    } else {
+        $(modalElement).modal('hide');
+    }
 };
 /********** Function to show error dialog *********/
 function showmodalError() {
-    $('#errordialog').modal({
-        'show': true
-    });
+    var modal = new bootstrap.Modal(document.getElementById('errordialog'));
+    modal.show();
 }

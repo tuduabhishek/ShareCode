@@ -23,7 +23,17 @@
     <link href="assets/css/googlefont.css" rel="stylesheet" />
 
     <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- New Library Versions -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.14.2/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    
+    <script src="https://code.jquery.com/jquery-4.0.0-beta.2.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<%-- <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"> --%>
+
+    <!-- Old Vendor CSS Files Commented Out -->
+    <!-- <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="./assets/vendor/icofont/icofont.min.css" rel="stylesheet">
     <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
     <%-- Start WI368  by Manoj Kumar on 30-05-2021--%>
@@ -32,32 +42,32 @@
     <%-- End  by Manoj Kumar on 30-05-2021--%>
     <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
     <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <link rel="stylesheet" type="text/css" href="styles/sweetalert2.css" />
     <script type="text/javascript" src="scripts/sweetalert2.min.js"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <!-- <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
 
     <%--<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">--%>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> -->
     <%--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>--%>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
 
     <!-- Template Main CSS File -->
     <link href="assets/css/styleIL3.css" rel="stylesheet">
 
-    <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'
-        rel='stylesheet'>
+    <!-- <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'
+        rel='stylesheet'> -->
 
-    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <!-- <script src="//code.jquery.com/jquery-1.11.0.min.js"></script> -->
 
 
     <style type="text/css">
@@ -200,33 +210,30 @@
     </style>
     <script type="text/javascript">
         function openModal() {
-            $('#staticBackdroppend').modal({
-                'show': true
-            });
+            var myModal = new bootstrap.Modal(document.getElementById('staticBackdroppend'));
+            myModal.show();
         }
 
         function showmodalAddSabashAwardee() {
-            $('#modalAddSabashAwardee').modal({
-                'show': true
-            });
+            var myModal = new bootstrap.Modal(document.getElementById('modalAddSabashAwardee'));
+            myModal.show();
         }
 
         function closemodalAddSabashAwardee() {
-            $('#modalAddSabashAwardee').modal({
-                'show': false
-            });
+            var myModalEl = document.getElementById('modalAddSabashAwardee');
+            var modal = bootstrap.Modal.getInstance(myModalEl);
+            if (modal) modal.hide();
         }
 
         function showmodalAddSabashAwardee1() {
-            $('#modalAddSabashAwardee1').modal({
-                'show': true
-            });
+            var myModal = new bootstrap.Modal(document.getElementById('modalAddSabashAwardee1'));
+            myModal.show();
         }
 
         function closemodalAddSabashAwardee1() {
-            $('#modalAddSabashAwardee1').modal({
-                'show': false
-            });
+            var myModalEl = document.getElementById('modalAddSabashAwardee1');
+            var modal = bootstrap.Modal.getInstance(myModalEl);
+            if (modal) modal.hide();
         }
 
         $(function () {
@@ -332,9 +339,8 @@
             $('#<%=txt_dor.ClientID%>').datepicker({ format: 'dd-M-yyyy', endDate: '+0d', autoclose: true });
         };--%>
         function ShowApprovePopup() {
-            $('#staticBackdroppend').modal({
-                'show': true
-            });
+            var myModal = new bootstrap.Modal(document.getElementById('staticBackdroppend'));
+            myModal.show();
         }
     </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -381,44 +387,44 @@
                     <% if(isSuperAdmin) Then %>
                     <ul>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Step-1 (Select Respondent)</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Step-1 (Select Respondent)</a>
                             <ul class="dropdown-menu">
                                 <li><a href="AddRespondent.aspx">Add/Remove/Submit Respondent</a></li>
                                 <li><a href="ReturnToAssesse.aspx">Return To Assessee </a></li>
                                  <li><a href="AddRespondent2.aspx">Respondent mgmt (Not Open)</a></li>
-                                <li><a href="" data-toggle="modal" data-target="#myModal2" visible="false" runat="server">Send Communication To Assessee To Select Respondent</a></li>
+                                <li><a href="" data-bs-toggle="modal" data-bs-target="#myModal2" visible="false" runat="server">Send Communication To Assessee To Select Respondent</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Step-2 (Approve Respondent)</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Step-2 (Approve Respondent)</a>
                             <ul class="dropdown-menu">
                                 <li><a href="ApprovalRespondent.aspx">Approve Respondent</a></li>
                                 <li><a href="AddRespondent3.aspx">Add/Remove/Submit Respondent (After Approval)</a></li>
                                 <li><a href="ReturnToApprover.aspx">Return To Approver</a></li>
-                                <li><a href="" data-toggle="modal" data-target="#myModal3" runat="server" visible="false">Send communication to approver to approve respondents</a></li>
+                                <li><a href="" data-bs-toggle="modal" data-bs-target="#myModal3" runat="server" visible="false">Send communication to approver to approve respondents</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Step-3 (Provide Feedback)</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Step-3 (Provide Feedback)</a>
                             <ul class="dropdown-menu">
                                 <li><a href="RevertFeedback.aspx">Revert Feedback</a></li>
                                 <li><a href="FeedbackAdm_Adm.aspx" runat="server" id="SurveyFeedback">Survey Feedback</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Report</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Report</a>
                             <ul class="dropdown-menu">
                                 <li><a href="MinimumCriteriaRpt.aspx" target="_blank">Minimum Criteria Report</a></li>
                                 <li><a href="SelectAssesor_Rpt.aspx" target="_blank">Selection of respondent status ( Assessee survey status)</a></li>
                                 <li><a href="SelectAssessorRespondentRpt.aspx" target="_blank">Selected Respondent Report</a></li>
                                 <li><a href="SurveyCompletionStatusRpt.aspx" target="_blank">Survey completion status (individual respondent status)</a></li>
-                               <%-- <li><a href="" data-toggle="modal" data-target="#myModal5" id="la" runat="server">individual Report</a></li>--%>
-                                <li><a href="" data-toggle="modal" data-target="#myModal7" id="la1" runat="server">Overall Report</a></li>
-                                <li><a href="" data-toggle="modal" data-target="#myModal6" id="la2" runat="server">Feedback report(pdf)</a></li>
+                               <%-- <li><a href="" data-bs-toggle="modal" data-bs-target="#myModal5" id="la" runat="server">individual Report</a></li>--%>
+                                <li><a href="" data-bs-toggle="modal" data-bs-target="#myModal7" id="la1" runat="server">Overall Report</a></li>
+                                <li><a href="" data-bs-toggle="modal" data-bs-target="#myModal6" id="la2" runat="server">Feedback report(pdf)</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Setting</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Setting</a>
                             <ul class="dropdown-menu">
                                 <li><a href="ChangeBUHR.aspx" id="A1" runat="server">Change BUHR</a></li>
                                 <li><a href="ChangeApprover.aspx" id="A3" runat="server">Change Approver</a></li>
@@ -429,44 +435,44 @@
                     <% ElseIf(isLD) Then %>
                     <ul>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Step-1 (Select Respondent)</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Step-1 (Select Respondent)</a>
                             <ul class="dropdown-menu">
                                 <li><a href="AddRespondent.aspx">Add/Remove/Submit Respondent</a></li>
                                 <li><a href="ReturnToAssesse.aspx">Return To Assessee </a></li>
                                  <li><a href="AddRespondent2.aspx">Respondent mgmt (Not Open)</a></li>
-                                <li><a href="" data-toggle="modal" data-target="#myModal2" visible="false" runat="server">Send Communication To Assessee To Select Respondent</a></li>
+                                <li><a href="" data-bs-toggle="modal" data-bs-target="#myModal2" visible="false" runat="server">Send Communication To Assessee To Select Respondent</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Step-2 (Approve Respondent)</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Step-2 (Approve Respondent)</a>
                             <ul class="dropdown-menu">
                                 <li><a href="ApprovalRespondent.aspx">Approve Respondent</a></li>
                                 <li><a href="AddRespondent3.aspx">Add/Remove/Submit Respondent (After Approval)</a></li>
                                 <li><a href="ReturnToApprover.aspx">Return To Approver</a></li>
-                                <li><a href="" data-toggle="modal" data-target="#myModal3" runat="server" visible="false">Send communication to approver to approve respondents</a></li>
+                                <li><a href="" data-bs-toggle="modal" data-bs-target="#myModal3" runat="server" visible="false">Send communication to approver to approve respondents</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Step-3 (Provide Feedback)</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Step-3 (Provide Feedback)</a>
                             <ul class="dropdown-menu">
                                 <li><a href="RevertFeedback.aspx">Revert Feedback</a></li>
                                 <li><a href="FeedbackAdm_Adm.aspx" runat="server" id="A2">Survey Feedback</a></li>
                             </ul>
                         </li>
                          <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Report</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Report</a>
                             <ul class="dropdown-menu">
                                 <li><a href="MinimumCriteriaRpt.aspx" target="_blank">Minimum Criteria Report</a></li>
                                 <li><a href="SelectAssesor_Rpt.aspx" target="_blank">Selection of respondent status ( Assessee survey status)</a></li>
                                 <li><a href="SelectAssessorRespondentRpt.aspx" target="_blank">Selected Respondent Report</a></li>
                                 <li><a href="SurveyCompletionStatusRpt.aspx" target="_blank">Survey completion status (individual respondent status)</a></li>
-                               <%-- <li><a href="" data-toggle="modal" data-target="#myModal5" id="A4" runat="server">individual Report</a></li>--%>
-                                <li><a href="" data-toggle="modal" data-target="#myModal7" id="A5" runat="server">Overall Report</a></li>
-                                <li><a href="" data-toggle="modal" data-target="#myModal6" id="A6" runat="server">Feedback report(pdf)</a></li>
+                               <%-- <li><a href="" data-bs-toggle="modal" data-bs-target="#myModal5" id="A4" runat="server">individual Report</a></li>--%>
+                                <li><a href="" data-bs-toggle="modal" data-bs-target="#myModal7" id="A5" runat="server">Overall Report</a></li>
+                                <li><a href="" data-bs-toggle="modal" data-bs-target="#myModal6" id="A6" runat="server">Feedback report(pdf)</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Setting</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Setting</a>
                             <ul class="dropdown-menu">
                                 <li><a href="ChangeBUHR.aspx" id="A7" runat="server">Change BUHR</a></li>
                                 <li><a href="ChangeApprover.aspx" id="A8" runat="server">Change Approver</a></li>
@@ -477,41 +483,41 @@
                     <% ElseIf(isHRBP) Then %>
                     <ul>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Step-1 (Select Respondent)</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Step-1 (Select Respondent)</a>
                             <ul class="dropdown-menu">
                                 <li><a href="AddRespondent.aspx">Add/Remove/Submit Respondent</a></li>
                                 <li><a href="ReturnToAssesse.aspx">Return To Assessee </a></li>
                                  <li><a href="AddRespondent2.aspx">Respondent mgmt (Not Open)</a></li>
-                                <li><a href="" data-toggle="modal" data-target="#myModal2" visible="false" runat="server">Send Communication To Assessee To Select Respondent</a></li>
+                                <li><a href="" data-bs-toggle="modal" data-bs-target="#myModal2" visible="false" runat="server">Send Communication To Assessee To Select Respondent</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Step-2 (Approve Respondent)</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Step-2 (Approve Respondent)</a>
                             <ul class="dropdown-menu">
                                 <li><a href="ApprovalRespondent.aspx">Approve Respondent</a></li>
                                 <li><a href="AddRespondent3.aspx">Add/Remove/Submit Respondent (After Approval)</a></li>
                                 <li><a href="ReturnToApprover.aspx">Return To Approver</a></li>
-                                <li><a href="" data-toggle="modal" data-target="#myModal3" runat="server" visible="false">Send communication to approver to approve respondents</a></li>
+                                <li><a href="" data-bs-toggle="modal" data-bs-target="#myModal3" runat="server" visible="false">Send communication to approver to approve respondents</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Step-3 (Provide Feedback)</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Step-3 (Provide Feedback)</a>
                             <ul class="dropdown-menu">
                                 <li><a href="RevertFeedback.aspx">Revert Feedback</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Report</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Report</a>
                             <ul class="dropdown-menu">
                                 <li><a href="MinimumCriteriaRpt.aspx" target="_blank">Minimum Criteria Report</a></li>
                                 <li><a href="SelectAssesor_Rpt.aspx" target="_blank">Selection of respondent status ( Assessee survey status)</a></li>
                                 <li><a href="SelectAssessorRespondentRpt.aspx" target="_blank">Selected Respondent Report</a></li>
                                 <li><a href="SurveyCompletionStatusRpt.aspx" target="_blank">Survey completion status (individual respondent status)</a></li>                             
-                                <li><a href="" data-toggle="modal" data-target="#myModal6" id="A12" runat="server">Feedback report(pdf)</a></li>
+                                <li><a href="" data-bs-toggle="modal" data-bs-target="#myModal6" id="A12" runat="server">Feedback report(pdf)</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Setting</a>
+                            <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#">Setting</a>
                             <ul class="dropdown-menu">
                                 <li><a href="ChangeApprover.aspx" id="A14" runat="server" >Change Approver</a></li>
                                 <%--<li><a href="Manage_Code.aspx" id="A2" runat="server" visible="false">Manage Code</a></li>--%>
@@ -841,7 +847,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Individual Report For Assessee - Final Data (Tag)</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
                         <asp:UpdatePanel ID="upnlIndivial" runat="server">
@@ -877,7 +883,7 @@
                     <div class="modal-footer">
                         <div style="text-align: center; margin: auto;">
                             <asp:LinkButton runat="server" ID="Button3" class="btn btn-primary" OnClick="Button3_Click" ValidationGroup="IndivisualRpt"><i class="fa fa-file-text"></i>&nbsp;Download</asp:LinkButton>&nbsp;
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                             <asp:Button runat="server" ID="Button4" Text="Download(.pdf)" class="btn-learn-more" Visible="false"></asp:Button>
                         </div>
 
@@ -894,7 +900,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Over All Report For Assessee</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
                         <asp:UpdatePanel ID="upnlOverall" runat="server">
@@ -941,7 +947,7 @@
                         <div class="modal-footer">
                             <div style="text-align: center; margin: auto;">
                                 <asp:LinkButton runat="server" ID="Button7" Text="Download(excel)" class="btn btn-primary" OnClick="Button7_Click" ValidationGroup="OverallRpt"><i class="fa fa-file-text"></i>&nbsp;Download</asp:LinkButton>&nbsp;
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -958,7 +964,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Feedback report</h4>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
                         <div class="row form-group">
@@ -980,7 +986,7 @@
                         <div class="modal-footer">
                             <div style="text-align: center; margin: auto;">
                                 <asp:LinkButton runat="server" ID="Button5" Text="Download" class="btn btn-primary" OnClick="Button5_Click" ValidationGroup="FeedbackRpt"></asp:LinkButton>&nbsp;
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
                                 <asp:Button runat="server" ID="Button6" Text="Download(.pdf)" class="btn-learn-more" Visible="false"></asp:Button>
                             </div>
 

@@ -89,7 +89,7 @@
              default:
                  cssclass = 'alert-info'
          }
-$('#alert_container').append('<div id="alert_div" style="margin: 0 0.5%; -webkit-box-shadow: 3px 4px 6px #999;" class="alert fade in ' + cssclass + '"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>' + messagetype + '!</strong> <span>' + message + '</span></div>');
+$('#alert_container').append('<div id="alert_div" style="margin: 0 0.5%; -webkit-box-shadow: 3px 4px 6px #999;" class="alert fade in ' + cssclass + '"><a href="#" class="btn-close" data-bs-dismiss="alert" aria-label="close">&times;</a><strong>' + messagetype + '!</strong> <span>' + message + '</span></div>');
 $('#alert_container').delay(4200).fadeOut(300);
      }
  </script>
@@ -105,7 +105,7 @@ $('#alert_container').delay(4200).fadeOut(300);
             <h1 style="font-size: 30px; color: white;padding-top: 20px;">Feedback 360 Master Upload</h1>
         </div></div>
             <div class="col-lg-1" style="padding:0px;">
-        <a class="navbar-brand pull-right" href="#">
+        <a class="navbar-brand float-end" href="#">
             <img src="img/tslright.png" style="width:100px; margin-top:-20px;" class="d-inline-block align-top" alt="" /></a>
             </div>
           </div>

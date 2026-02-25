@@ -14,7 +14,17 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <%--<link rel="Shortcut Icon" href="Images/favicon.ico" />--%>
     <title>360 Survey</title>
-    <link href="styles/bootstrap.css" rel="stylesheet" />
+    <!-- New Library Versions -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.14.2/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    
+    <script src="https://code.jquery.com/jquery-4.0.0-beta.2.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.2/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <%-- <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"> --%>
+
+    <!-- Old References Commented Out -->
+    <!-- <link href="styles/bootstrap.css" rel="stylesheet" /> -->
     <link href="styles/font-awesome.css" rel="stylesheet" />
     <link href="plugins/Simple-Line-Icons/simple-line-icons.css" rel="stylesheet" />
     <link href="styles/style.css" rel="stylesheet" />
@@ -47,8 +57,8 @@
       <script src="scripts/respond.min.js"></script>
         <script src="scripts/excanvas.min.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="scripts/jquery.min.js"></script>
-    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="scripts/jquery.min.js"></script> -->
+    <!-- <script type="text/javascript" src="scripts/bootstrap.min.js"></script> -->
     <script type="text/javascript" src="scripts/bootstrap-multiselect.js"></script>
     <script type="text/javascript" src="scripts/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="scripts/jquery.cookie.js"></script>
@@ -143,7 +153,7 @@
                     <!-- BEGIN LOGO -->
                     <div class="site-logo cyan">
                         <div id="menu-trigger" class="menu-toggler sidebar-toggler" data-original-title="Close/Open Menu"
-                            data-toggle="tooltip" data-placement="bottom">
+                            data-bs-toggle="tooltip" data-bs-placement="bottom">
                             <div class="line-wrap">
                                 <div class="line smoke top">
                                 </div>
@@ -154,21 +164,21 @@
                             </div>
                         </div>
                         <a href="Dashboard.aspx" class="logo-default" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 28px; color: #fff; vertical-align: middle; color: #00BCD4; text-decoration: none"
-                            data-original-title="360 System" data-toggle="tooltip"
-                            data-placement="bottom">
+                            data-original-title="360 System" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom">
                             <%--<img src="images/TATA-Steel-Logo.png" alt="logo" class="logo-default" />--%>
                         </a>
                     </div>
                     <!-- END LOGO -->
                    
-                    <ul class="nav navbar-nav pull-left">
+                    <ul class="nav navbar-nav float-start">
                         <%-- <li id="top-search">
                             <a href=""><i class="icon icon-magnifier"></i></a>
                         </li>--%>
                     </ul>
                     <!-- BEGIN PONSIVE MENU TOGGLER -->
-                    <div id="responsive-trigger" class="menu-toggler responsive-toggler" data-toggle="collapse"
-                        data-target=".navbar-collapse">
+                    <div id="responsive-trigger" class="menu-toggler responsive-toggler" data-bs-toggle="collapse"
+                        data-bs-target=".navbar-collapse">
                         <div class="line-wrap">
                             <div class="line smoke top">
                             </div>
@@ -180,7 +190,7 @@
                     </div>
                     <!-- END RESPONSIVE MENU TOGGLER -->
                     <!--logo start    col-md-offset-2 -->
-                    <ul class="nav navbar-nav pull-left">
+                    <ul class="nav navbar-nav float-start">
                         <li>
                             <div class="sitetitle hidden-md hidden-sm hidden-xs">
                                 <asp:Label ID="lblSiteTitle" runat="server" ForeColor="MidnightBlue" Text="360 DEGREE FEEDBACK SURVEY"></asp:Label>
@@ -193,7 +203,7 @@
                     <!--logo end    col-sm-offset-3 col-xs-offset-3  -->
                     <!-- BEGIN TOP MENU -->
                     <div class="top-menu" style="padding-right: 15px;">
-                        <ul class="nav navbar-nav pull-right">
+                        <ul class="nav navbar-nav float-end">
                             <li style="margin: 17px 5px;">
                                 <div class="btn-group">
                                    
@@ -211,7 +221,7 @@
                             <li class="dropdown dropdown-extended dropdown-tasks"><a href="#" class="dropdown-toggle">
                                 <i class="icon-bell"></i></a></li>
                             <li class="dropdown dropdown-user user-menu"><a href="#" class="dropdown-toggle"
-                                data-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="background-color: transparent">
+                                data-bs-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="background-color: transparent">
                                  <img class="img-circle" alt="" id="imgUser" src='<%="http://176.0.1.102/GIH001.ashx?pf=YY&cid=" & Session(CommonConstants.SESSION_USER_ID) %>' />  
                                 <asp:HiddenField ID="lblId" runat="server" Value=""></asp:HiddenField>
                             </a>
@@ -241,7 +251,7 @@
                 <div class="sidebar navbar-collapse collapse">
                     <!-- BEGIN SIDEBAR MENU -->
                     <ul class="sidebar-menu sidebar-menu-hover-submenu" data-keep-expanded="false" data-auto-scroll="true"
-                        data-slide-speed="200">
+                        data-bs-slide-speed="200">
                         <%--'Sumeet--%>
                         <asp:Literal ID="literalMenu" runat="server"></asp:Literal>
                        
@@ -330,10 +340,13 @@
 
 
         function showModalDiv(i) {
-            $(i).modal('show');
+            var myModal = new bootstrap.Modal(document.querySelector(i));
+            myModal.show();
         };
         function hideModalDiv(i) {
-            $(i).modal('hide');
+            var myModalEl = document.querySelector(i);
+            var modal = bootstrap.Modal.getInstance(myModalEl);
+            if (modal) modal.hide();
         };
     </script>
 </body>

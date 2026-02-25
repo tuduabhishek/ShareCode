@@ -168,7 +168,7 @@
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-md-12 text-right" style="padding-bottom: 10px; padding-right: 0px;">
-                                                    <asp:LinkButton ID="lnkRefresh" runat="server" Style="align-content: center; background-color: transparent; border: none; padding: 15px" data-toggle="tooltip" ToolTip="Refresh All"><i class="fa fa-refresh" style="color: dodgerblue; font-size:20px;"></i>
+                                                    <asp:LinkButton ID="lnkRefresh" runat="server" Style="align-content: center; background-color: transparent; border: none; padding: 15px" data-bs-toggle="tooltip" ToolTip="Refresh All"><i class="fa fa-refresh" style="color: dodgerblue; font-size:20px;"></i>
                                                     </asp:LinkButton>
                                                 </div>
                                             </div>

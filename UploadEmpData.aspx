@@ -168,7 +168,7 @@
                                         <div class="form-body">
                                             <div class="row">
                                                 <div class="col-md-12 text-right" style="padding-bottom: 10px; padding-right: 0px;">
-                                                    <asp:LinkButton ID="lnkRefresh" runat="server" Style="align-content: center; background-color: transparent; border: none; padding: 15px" data-toggle="tooltip" ToolTip="Refresh All"><i class="fa fa-refresh" style="color: dodgerblue; font-size:20px;"></i>
+                                                    <asp:LinkButton ID="lnkRefresh" runat="server" Style="align-content: center; background-color: transparent; border: none; padding: 15px" data-bs-toggle="tooltip" ToolTip="Refresh All"><i class="fa fa-refresh" style="color: dodgerblue; font-size:20px;"></i>
                                                     </asp:LinkButton>
                                                 </div>
                                             </div>
@@ -176,12 +176,12 @@
                                             <div class="panel-heading">
                                                 <asp:HiddenField ID="TabName" runat="server" />
                                                 <ul class="nav nav-tabs" style="border: none;">
-                                                    <li class="active"><a href="#tabExclude" class="bg-color" data-toggle="tab" id="Exclu"><b>Exclude Employee</b></a></li>
-                                                    <li><a href="#tabInclude" class="bg-color" data-toggle="tab" id="Include"><b>Include Employee</b></a></li>
-                                                    <li><a href="#tabDataManagement" class="bg-color" data-toggle="tab" id="EmplDtMgt"><b>Employee Data Management</b></a></li>
-                                                    <li><a href="#tabSurveyMgt" class="bg-color" data-toggle="tab" id="SurveyMgt"><b>Survey Status Management</b></a></li>
-                                                    <%--<li><a href="#tabSend" class="bg-color" data-toggle="tab" id="SndRemd"><b>Send Reminder Mail</b></a></li>--%>
-                                                    <li><a href="#tabAdmin" class="bg-color" data-toggle="tab" id="Sup Admin"><b>Super Admin Role</b></a></li>
+                                                    <li class="active"><a href="#tabExclude" class="bg-color" data-bs-toggle="tab" id="Exclu"><b>Exclude Employee</b></a></li>
+                                                    <li><a href="#tabInclude" class="bg-color" data-bs-toggle="tab" id="Include"><b>Include Employee</b></a></li>
+                                                    <li><a href="#tabDataManagement" class="bg-color" data-bs-toggle="tab" id="EmplDtMgt"><b>Employee Data Management</b></a></li>
+                                                    <li><a href="#tabSurveyMgt" class="bg-color" data-bs-toggle="tab" id="SurveyMgt"><b>Survey Status Management</b></a></li>
+                                                    <%--<li><a href="#tabSend" class="bg-color" data-bs-toggle="tab" id="SndRemd"><b>Send Reminder Mail</b></a></li>--%>
+                                                    <li><a href="#tabAdmin" class="bg-color" data-bs-toggle="tab" id="Sup Admin"><b>Super Admin Role</b></a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -707,14 +707,14 @@
                                                         <label class="control-label">Start Date<span style="color: red; font-weight: bold; font-size: 12pt">*</span></label>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <asp:TextBox ID="txtStartDt" data-placement="top"
+                                                        <asp:TextBox ID="txtStartDt" data-bs-placement="top"
                                                             CssClass="form-control cursor-pointer" runat="server"></asp:TextBox>
                                                     </div>
                                                     <div class="col-md-1">
                                                         <label class="control-label">End Date<span style="color: red; font-weight: bold; font-size: 12pt">*</span></label>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <asp:TextBox ID="txtToDate" data-placement="top"
+                                                        <asp:TextBox ID="txtToDate" data-bs-placement="top"
                                                             CssClass="form-control cursor-pointer" runat="server"></asp:TextBox>
                                                     </div>
                                                 </div>

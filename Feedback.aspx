@@ -21,7 +21,7 @@
     <link href="assets/css/googlefont.css" rel="stylesheet" />
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
   <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
@@ -818,9 +818,9 @@
                         </div>
                     </div>
                                 <div class="box-footer" style="text-align:center;">
-        <asp:LinkButton ID="btn_submit" runat="server" class="btn-learn-more" style="background-color:#F2F2F2" Width="120px" Text="Submit" ValidationGroup="vgFeedback" data-toggle="modal" data-target="#staticBackdrop"/>
+        <asp:LinkButton ID="btn_submit" runat="server" class="btn-learn-more" style="background-color:#F2F2F2" Width="120px" Text="Submit" ValidationGroup="vgFeedback" data-bs-toggle="modal" data-bs-target="#staticBackdrop"/>
 
-       &nbsp;&nbsp; <asp:LinkButton ID="btn_reject" runat="server" class="btn-learn-more" style="background-color:#F2F2F2" Text="Insufficient Exposure to provide feedback" data-toggle="modal" data-target="#staticBackdrop1"/>
+       &nbsp;&nbsp; <asp:LinkButton ID="btn_reject" runat="server" class="btn-learn-more" style="background-color:#F2F2F2" Text="Insufficient Exposure to provide feedback" data-bs-toggle="modal" data-bs-target="#staticBackdrop1"/>
                          
     </div>
                   </div>                             
@@ -834,7 +834,7 @@
                     </asp:UpdatePanel>           
         </div>  </div> </div>
 
-          <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       
@@ -844,14 +844,14 @@
       <div class="modal-footer">
          
           <asp:Button runat="server" ID="btnyesclick" OnClick="Submit" Text="Yes" class="btn btn-primary" ValidationGroup="vgFeedback" />
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
         
       </div>
     </div>
   </div>
 </div>
 
-             <div class="modal fade" id="staticBackdrop1" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+             <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       
@@ -861,7 +861,7 @@
       <div class="modal-footer">
          
           <asp:Button runat="server" ID="Button1" OnClick="reject" Text="Yes" class="btn btn-primary"  />
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
         
       </div>
     </div>

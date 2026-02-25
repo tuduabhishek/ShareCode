@@ -93,7 +93,7 @@
         // cache a reference to the countdown element so we don't have to query the DOM for it on each ping.
         var $countdown;
         // Create timeout warning dialog
-        $('body').append('<div class="modal fade" id="sessionTimeout-dialog" data-backdrop="static">'
+        $('body').append('<div class="modal fade" id="sessionTimeout-dialog" data-bs-backdrop="static">'
 							+ '<div class="modal-dialog modal-small">'
 							+ '<div class="modal-content">'
 							+ '<div class="modal-header">'
@@ -102,7 +102,7 @@
 							+ '<div class="modal-body"><p><i class="fa fa-warning text-danger"></i>' + o.message + ' in <span id="session-timeout-counter"></span> seconds.</p></div>'
 							+ '<div class="modal-footer">'
 							//+ '<button id="sessionTimeout-dialog-logout" type="button" class="btn btn-default">' + o.logoutBtn + '</button>'
-							+ '<button id="sessionTimeout-dialog-keepalive" type="button" class="btn btn-primary" data-dismiss="modal">' + o.stayConnectedBtn + '</button>'
+							+ '<button id="sessionTimeout-dialog-keepalive" type="button" class="btn btn-primary" data-bs-dismiss="modal">' + o.stayConnectedBtn + '</button>'
 							+ '</div>'
 							+ '</div>'
 							+ '</div>'
@@ -130,14 +130,19 @@
                     dialogTimer = setTimeout(function () {
                         // CLOSE ANY POTENTIALLY OPEN MODALS
                         $.each(o.closeModals, function (i, val) {
-                            $('#' + val).modal('hide');
+                            var mEl = document.getElementById(val);
+                            if (mEl) {
+                                var m = bootstrap.Modal.getInstance(mEl);
+                                if (m) m.hide();
+                            }
                         });
 
                         // SET HEAD TITLE MESSAGE
                         //document.title = o.titleMessage;
                         $countdown = $('#session-timeout-counter');
                         $countdown.html("");
-                        $('#sessionTimeout-dialog').modal('show');
+                        var myModal = new bootstrap.Modal(document.getElementById('sessionTimeout-dialog'));
+                        myModal.show();
                         controlRedirTimer('start');
                     }, o.warnAfter);
                     break;
