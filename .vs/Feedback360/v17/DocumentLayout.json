@@ -1,16 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\IRIS\\DEV\\Feedback360\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{16481FA6-360D-4B74-6B33-BF7B3962CD69}|D:\\IRIS\\DEV\\Feedback360|d:\\iris\\dev\\feedback360\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{16481FA6-360D-4B74-6B33-BF7B3962CD69}|D:\\IRIS\\DEV\\Feedback360|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{16481FA6-360D-4B74-6B33-BF7B3962CD69}|D:\\IRIS\\DEV\\Feedback360|D:\\IRIS\\DEV\\Feedback360\\frmlogin.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{16481FA6-360D-4B74-6B33-BF7B3962CD69}|D:\\IRIS\\DEV\\Feedback360|solutionrelative:frmlogin.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    }
-  ],
+  "WorkspaceRootPath": "D:\\New folder\\TataSteelEurope\\DEV\\Web\\360_feedback\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,32 +22,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{99b8fa2f-ab90-4f57-9c32-949f146f1914}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "web.config",
-              "DocumentMoniker": "D:\\IRIS\\DEV\\Feedback360\\web.config",
-              "RelativeDocumentMoniker": "web.config",
-              "ToolTip": "D:\\IRIS\\DEV\\Feedback360\\web.config",
-              "RelativeToolTip": "web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2026-02-20T06:14:13.97Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmLogin.aspx",
-              "DocumentMoniker": "D:\\IRIS\\DEV\\Feedback360\\frmLogin.aspx",
-              "RelativeDocumentMoniker": "frmLogin.aspx",
-              "ToolTip": "D:\\IRIS\\DEV\\Feedback360\\frmLogin.aspx",
-              "RelativeToolTip": "frmLogin.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2026-02-20T06:04:45.733Z",
-              "EditorCaption": ""
             }
           ]
         }

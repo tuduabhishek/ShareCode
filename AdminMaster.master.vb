@@ -13,6 +13,7 @@ Partial Class Admin
     Public isSuperAdmin, isLD, isHRBP As Boolean
     Public Sub loadLoggedInUserIDAndDomainIntoSession()
 
+        Session("USER_ID") = "805324"
         Dim strUserID As String = Session("USER_ID")
         Dim strUserDomain As String = ""
         Session("ADM_USER") = Session("USER_ID")
@@ -712,7 +713,18 @@ Partial Class Admin
                         If checkcateg(TextBox2.Text, gh.Rows(0)(1)) Then
                             If Not f1 Is Nothing And f1.Rows.Count > 0 Then
                                 'Added by TCS on 08022024 (New Report Download)
-                                If yearCycle > 20222 Then
+                                If yearCycle >= 20262 Then
+                                    Dim path As String = Server.MapPath("~/360Report.pdf")
+
+                                    Dim generator As New ReportGenerator()
+
+                                    generator.GenerateFullReport(path, "Abhishek Tudu", "Senior Engineer", "25")
+
+                                    Response.ContentType = "application/pdf"
+                                    Response.AppendHeader("Content-Disposition", "attachment; filename=360Report.pdf")
+                                    Response.TransmitFile(path)
+                                    Response.End()
+                                ElseIf yearCycle > 20222 Then
                                     Dim rpt As New ReportIL1toIL3
                                     rpt.GenerateReport(TextBox2.Text.Trim, txtFyear.Text.Trim, txtFcycle.Text.Trim)
                                 Else

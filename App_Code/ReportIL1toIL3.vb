@@ -75,11 +75,13 @@ Public Class ReportIL1toIL3
                 completedsurvey = cont
             End If
             Dim Str As String = ""
-            Str += " Select * from hrps.V_ALL_QUESTIONS_T_NEW  where EMA_PERNO = '" + perNo + "' and ss_year =" & yr & " and ss_srlno =" & cycle & "  ORDER BY ss_desc,ss_categ,ss_qcode "
+            'Str += " Select * from hrps.V_ALL_QUESTIONS_T_NEW  where EMA_PERNO = '" + perNo + "' and ss_year =" & yr & " and ss_srlno =" & cycle & "  ORDER BY ss_desc,ss_categ,ss_qcode "
+            Str += ""
             Dim cmd As New OracleCommand()
             Dim dtAll = GetData(Str, conHrps)
             If dtAll.Rows.Count > 0 Then
                 accountbltyDt = AccountibilityData(perNo, yr, cycle, dtAll, lvl)
+                'accountbltyDt = ChangeData(perNo, yr, cycle, dtAll, lvl)
                 collabrDt = CollabarationData(perNo, yr, cycle, dtAll, lvl)
                 responsiveDt = ResponsivenessData(perNo, yr, cycle, dtAll, lvl)
                 teamBuilDt = TeamData(perNo, yr, cycle, dtAll, lvl)
@@ -1133,6 +1135,132 @@ Public Class ReportIL1toIL3
         End If
         Return dtAccountibility
     End Function
+
+    Public Function ChangeData(ByVal perNo As String, ByVal year As String, ByVal cycle As String, ByVal allResponseData As DataTable, ByVal level As String) As DataTable
+        Dim dtAccountibility As New DataTable
+        dtAccountibility.Columns.Add("QUESTION", GetType(String))
+        dtAccountibility.Columns.Add("SELF", GetType(String))
+        dtAccountibility.Columns.Add("MANGR", GetType(String))
+        dtAccountibility.Columns.Add("PEER", GetType(String))
+        If level <> "I1" Then
+            dtAccountibility.Columns.Add("INTSH", GetType(String))
+        End If
+        dtAccountibility.Columns.Add("OVERALL", GetType(String))
+
+        If allResponseData.Rows.Count > 0 Then
+            'Accountibility(Self)
+            Dim drAccSelf() As DataRow = allResponseData.Select("ss_desc='Change' and ss_categ='Self'")
+            Dim dtAccSelf As New DataTable
+            dtAccSelf.Columns.Add("ss_qcode", GetType(String))
+            dtAccSelf.Columns.Add("AC", GetType(String))
+            For Each tdSelf As DataRow In drAccSelf
+                dtAccSelf.Rows.Add(tdSelf(7).ToString, tdSelf(16).ToString)
+            Next
+
+            'Accountibility(Manger)
+            Dim drAccManger() As DataRow = allResponseData.Select("ss_desc='Change' and ss_categ='MANGR'")
+            Dim dtAccManger As New DataTable
+            dtAccManger.Columns.Add("ss_qcode", GetType(String))
+            dtAccManger.Columns.Add("AC", GetType(String))
+            For Each tdManager As DataRow In drAccManger
+                dtAccManger.Rows.Add(tdManager(7).ToString, tdManager(16).ToString)
+            Next
+
+            'Accountibility(Peer)
+            Dim drAccPeer() As DataRow = allResponseData.Select("ss_desc='Change' and ss_categ='PEER'")
+            Dim dtAccPeer As New DataTable
+            dtAccPeer.Columns.Add("ss_qcode", GetType(String))
+            dtAccPeer.Columns.Add("AC", GetType(String))
+            For Each tdPeer As DataRow In drAccPeer
+                dtAccPeer.Rows.Add(tdPeer(7).ToString, tdPeer(16).ToString)
+            Next
+
+            Dim dtAccRopt As New DataTable
+            If level = "I2" Or level = "I1" Then
+                dtAccountibility.Columns.Add("ROPT", GetType(String))
+                'Accountibility(ROPT)
+                Dim drAccRopt() As DataRow = allResponseData.Select("ss_desc='Change' and ss_categ='ROPT'")
+                dtAccRopt.Columns.Add("ss_qcode", GetType(String))
+                dtAccRopt.Columns.Add("AC", GetType(String))
+                For Each tdRopt As DataRow In drAccRopt
+                    dtAccRopt.Rows.Add(tdRopt(7).ToString, tdRopt(16).ToString)
+                Next
+            End If
+
+
+            'Accountibility(Internal Statkeholder)
+            Dim drAccIntsh() As DataRow = allResponseData.Select("ss_desc='Change' and ss_categ='INTSH'")
+            Dim dtAccIntsh As New DataTable
+            dtAccIntsh.Columns.Add("ss_qcode", GetType(String))
+            dtAccIntsh.Columns.Add("AC", GetType(String))
+            For Each tdIntsh As DataRow In drAccIntsh
+                dtAccIntsh.Rows.Add(tdIntsh(7).ToString, tdIntsh(16).ToString)
+            Next
+
+
+            'Accountibility(Overall)
+            Dim drAccOverall() As DataRow = allResponseData.Select("ss_desc='Change' and ss_categ='Z-OVERALL'")
+            Dim dtAccOverall As New DataTable
+            dtAccOverall.Columns.Add("ss_qcode", GetType(String))
+            dtAccOverall.Columns.Add("AC", GetType(String))
+            For Each tdOverall As DataRow In drAccOverall
+                dtAccOverall.Rows.Add(tdOverall(7).ToString, tdOverall(16).ToString)
+            Next
+
+            Dim questionCount As Integer = dtAccOverall.Rows.Count
+            For i = 0 To questionCount - 1
+                dtAccountibility.Rows.Add("", "", "", "", "", "")
+            Next
+
+            If dtAccSelf.Rows.Count > 0 Then
+                For i = 0 To dtAccSelf.Rows.Count - 1
+                    dtAccountibility.Rows(i)("QUESTION") = Convert.ToString(dtAccSelf.Rows(i)("ss_qcode"))
+                    dtAccountibility.Rows(i)("SELF") = Convert.ToString(dtAccSelf.Rows(i)("AC"))
+                Next
+            Else
+                For i = 0 To dtAccOverall.Rows.Count - 1
+                    dtAccountibility.Rows(i)("QUESTION") = Convert.ToString(dtAccOverall.Rows(i)("ss_qcode"))
+                Next
+            End If
+
+            If dtAccManger.Rows.Count > 0 Then
+                For i = 0 To dtAccManger.Rows.Count - 1
+                    dtAccountibility.Rows(i)("MANGR") = Convert.ToString(dtAccManger.Rows(i)("AC"))
+                Next
+            End If
+
+            If dtAccPeer.Rows.Count > 0 Then
+                For i = 0 To dtAccPeer.Rows.Count - 1
+                    dtAccountibility.Rows(i)("PEER") = Convert.ToString(dtAccPeer.Rows(i)("AC"))
+                Next
+            End If
+
+            If level = "I2" Or level = "I1" Then
+                If dtAccRopt.Rows.Count > 0 Then
+                    For i = 0 To dtAccRopt.Rows.Count - 1
+                        dtAccountibility.Rows(i)("ROPT") = Convert.ToString(dtAccRopt.Rows(i)("AC"))
+                    Next
+                End If
+            End If
+
+            If level <> "I1" Then
+                If dtAccIntsh.Rows.Count > 0 Then
+                    For i = 0 To dtAccIntsh.Rows.Count - 1
+                        dtAccountibility.Rows(i)("INTSH") = Convert.ToString(dtAccIntsh.Rows(i)("AC"))
+                    Next
+                End If
+            End If
+
+            If dtAccOverall.Rows.Count > 0 Then
+                For i = 0 To dtAccOverall.Rows.Count - 1
+                    dtAccountibility.Rows(i)("OVERALL") = Convert.ToString(dtAccOverall.Rows(i)("AC"))
+                Next
+            End If
+        End If
+        Return dtAccountibility
+    End Function
+
+
     Public Function ResponsivenessData(ByVal perNo As String, ByVal year As String, ByVal cycle As String, ByVal allResponseData As DataTable, ByVal level As String) As DataTable
         Dim dtResponsiveness As New DataTable
         dtResponsiveness.Columns.Add("QUESTION", GetType(String))

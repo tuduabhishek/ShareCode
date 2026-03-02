@@ -373,7 +373,7 @@
                                         }
 
                                     }
-        <% -- function setDatePicker() {
+        <%-- function setDatePicker() {
                                         $('#<%=txt_dor.ClientID%>').datepicker({ format: 'dd-M-yyyy', endDate: '+0d', autoclose: true });
                                     }; --%>
                                         function ShowApprovePopup() {
@@ -2633,13 +2633,13 @@
                     <script>
                         $(document).ready(function () {
 
-                           <% --function setDatePicker() {
+                           <%--function setDatePicker() {
                                 $("[id$=txt_datepicker]").datepicker({
                                     showOn: 'button',
                                     buttonImageOnly: true,
                                     buttonImage: 'calendar.gif'
                                 });
-                            }--%>        });
+                            } --%>        });
 
                         $(function () {
                             $("#txtStartDt").datepicker({ dateFormat: 'dd-mm-yy', showOn: 'button', buttonImageOnly: true, buttonImage: 'Images/calendar.gif' });

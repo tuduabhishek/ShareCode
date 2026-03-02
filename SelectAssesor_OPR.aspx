@@ -215,7 +215,7 @@
                                                 $(this).closest('.panel')[effect]();
                                             })
 
-                                                <% --$("#btntatasteelopr").click(
+                                                <%--$("#btntatasteelopr").click(
                                                     function () {
                                                         btnaddpeertsl
                                                         $("#<%=txtmgrnontslpno.ClientID %>").fadeIn(2000);

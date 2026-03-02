@@ -874,17 +874,17 @@ Partial Class Feedback_OPR
             da1.Fill(dt1)
             If dt1.Rows.Count > 0 Then
 
-                questionRepeater_Change.DataSource = dt1.Select("SS_QTYPE='Accountability'").CopyToDataTable()
+                questionRepeater_Change.DataSource = dt1.Select("SS_QTYPE='Change'").CopyToDataTable()
                 questionRepeater_Change.DataBind()
 
 
-                questionRepeater_Connect.DataSource = dt1.Select("SS_QTYPE='Collaboration'").CopyToDataTable()
+                questionRepeater_Connect.DataSource = dt1.Select("SS_QTYPE='Connect'").CopyToDataTable()
                 questionRepeater_Connect.DataBind()
 
-                questionRepeater_Contribute.DataSource = dt1.Select("SS_QTYPE='Responsiveness'").CopyToDataTable()
+                questionRepeater_Contribute.DataSource = dt1.Select("SS_QTYPE='Contribute'").CopyToDataTable()
                 questionRepeater_Contribute.DataBind()
 
-                questionRepeater_Care.DataSource = dt1.Select("SS_QTYPE='People Development'").CopyToDataTable()
+                questionRepeater_Care.DataSource = dt1.Select("SS_QTYPE='Care'").CopyToDataTable()
                 questionRepeater_Care.DataBind()
                 'If lvl = "IL3" Or lvl = "IL2" Or lvl = "IL1" Then
                 '    Dim words1 As String() = dt1.Rows(0).Item(0).ToString.Split(New Char() {"$"c})
