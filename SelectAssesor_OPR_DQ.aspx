@@ -54,8 +54,8 @@
                                 <%--<!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js">
                                     </script> -->--%>
                                     <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
-                                    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
-                                        rel="stylesheet">
+                                    <%-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+                                        rel="stylesheet"> --%>
                                     <%-- <!-- <script
                                         src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
                                         -->--%>
@@ -2812,7 +2812,7 @@
                     <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
 
                     <!-- Vendor JS Files -->
-                    <script src="assets/vendor/jquery/jquery.min.js"></script>
+                    <%-- <script src="assets/vendor/jquery/jquery.min.js"></script> --%>
                     <!-- <script src = "https://code.jquery.com/jquery-1.10.2.js"></script> -->
                     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
                     <%--<script src="scripts/jquery-ui.js"></script>--%>
@@ -2821,7 +2821,7 @@
 
 
 
-                        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+                        <%-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> --%>
                         <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
                         <script src="assets/vendor/php-email-form/validate.js"></script>
                         <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>

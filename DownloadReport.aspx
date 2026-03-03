@@ -4,6 +4,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+    <!-- New Library Versions -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-4.0.0-beta.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -17,7 +22,7 @@
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <%-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /> --%>
     <!-- Google Fonts -->
     <link href="assets/css/googlefont.css" rel="stylesheet" />
 
@@ -340,8 +345,8 @@
         <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
 
         <!-- Vendor JS Files -->
-        <script src="assets/vendor/jquery/jquery.min.js"></script>
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <%-- <script src="assets/vendor/jquery/jquery.min.js"></script> --%>
+        <%-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> --%>
         <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
         <script src="assets/vendor/php-email-form/validate.js"></script>
         <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
@@ -350,7 +355,7 @@
 
         <!-- Template Main JS File -->
         <script src="assets/js/main.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <%-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> --%>
     </form>
 </body>
 

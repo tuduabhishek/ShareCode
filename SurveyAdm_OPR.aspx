@@ -55,8 +55,8 @@
                                 <link rel="stylesheet" type="text/css" href="styles/sweetalert2.css" />
                                 <script type="text/javascript" src="scripts/sweetalert2.min.js"></script>
 
-                                <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
-                                    rel="stylesheet">
+                                <%-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+                                    rel="stylesheet"> --%>
 
                                 <!-- Template Main CSS File -->
                                 <link href="assets/css/styleIL3.css" rel="stylesheet">

@@ -17,7 +17,7 @@
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <%-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" /> --%>
     <!-- Google Fonts -->
     <link href="assets/css/googlefont.css" rel="stylesheet" />
 
@@ -997,8 +997,8 @@ Please ensure Javascript is enabled for purposes of
         <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
 
         <!-- Vendor JS Files -->
-        <script src="assets/vendor/jquery/jquery.min.js"></script>
-        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <%-- <script src="assets/vendor/jquery/jquery.min.js"></script> --%>
+        <%-- <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> --%>
         <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
         <script src="assets/vendor/php-email-form/validate.js"></script>
         <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
@@ -1007,7 +1007,7 @@ Please ensure Javascript is enabled for purposes of
 
         <!-- Template Main JS File -->
         <script src="assets/js/main.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <%-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> --%>
         <script type="text/javascript"> 
             if (window.history.replaceState) {
                 window.history.replaceState(null, null, window.location.href);

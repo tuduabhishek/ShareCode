@@ -3,8 +3,8 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="Server">
-    <link type="text/css" href="plugins/Bootstrap-Slider/bootstrap-slider.min.css" rel="stylesheet" />
-    <link type="text/css" href="styles/bootstrap-select.min.css" rel="stylesheet" />
+    <%-- <link type="text/css" href="plugins/Bootstrap-Slider/bootstrap-slider.min.css" rel="stylesheet" /> --%>
+    <%-- <link type="text/css" href="styles/bootstrap-select.min.css" rel="stylesheet" /> --%>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="styles/fileInput.css" />
 
@@ -53,8 +53,8 @@
         }
     </style>
 
-    <script type="text/javascript" src="plugins/Bootstrap-Slider/bootstrap-slider.min.js"></script>
-    <script type="text/javascript" src="scripts/bootstrap-select.min.js"></script>
+    <%-- <script type="text/javascript" src="plugins/Bootstrap-Slider/bootstrap-slider.min.js"></script> --%>
+    <%-- <script type="text/javascript" src="scripts/bootstrap-select.min.js"></script> --%>
     <script type="text/javascript" src="scripts/fileinput.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js" type="text/javascript"></script>
 

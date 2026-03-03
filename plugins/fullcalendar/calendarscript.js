@@ -376,24 +376,28 @@ $(document).ready(function () {
 
 
     /********** Window Resize event  *********/
+    var resizeTimer;
     $(window).resize(function () {
 
-        //$("#calendar").parents(".control-panel").width() <= 720 ? r = {
-        //    month: 'M',
-        //    week: 'W',
-        //    day: 'D'
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+            //$("#calendar").parents(".control-panel").width() <= 720 ? r = {
+            //    month: 'M',
+            //    week: 'W',
+            //    day: 'D'
 
-        //} : r = {
-        //    month: 'Month',
-        //    week: 'Week',
-        //    day: 'Day'
-        //};
-        // $('#calendar').fullCalendar('option', 'buttonText', get_button_text());
-        $('#calendar').fullCalendar('option', 'height', get_calendar_height());
-        //$("#calendar").fullCalendar('refresh');
-        //$('#calendar').fullCalendar({
-        //    buttonText: r
-        //});
+            //} : r = {
+            //    month: 'Month',
+            //    week: 'Week',
+            //    day: 'Day'
+            //};
+            // $('#calendar').fullCalendar('option', 'buttonText', get_button_text());
+            $('#calendar').fullCalendar('option', 'height', get_calendar_height());
+            //$("#calendar").fullCalendar('refresh');
+            //$('#calendar').fullCalendar({
+            //    buttonText: r
+            //});
+        }, 250); // Debounce resize to prevent infinite loop
     });
 
 

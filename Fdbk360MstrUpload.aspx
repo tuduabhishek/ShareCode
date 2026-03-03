@@ -9,11 +9,11 @@
     <link rel="shortcut icon" type="image/x-ico" href="images/tata-logo.ico" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
     <title>Feedback360</title>
-    <link href="styles/bootstrap.min.css" rel="stylesheet" />
+    <%-- <link href="styles/bootstrap.min.css" rel="stylesheet" /> --%>
   <%--  <link href="css/bootstrap.min.css" rel="stylesheet" />--%>
  <%--   <script src="js/jquery.js" type="text/javascript"></script>--%>
-    <script src="scripts/jquery.min.js"></script>
-    <script src="scripts/bootstrap.min.js"></script>
+    <%-- <script src="scripts/jquery.min.js"></script> --%>
+    <%-- <script src="scripts/bootstrap.min.js"></script> --%>
  <%--   <script src="js/bootstrap.min.js" type="text/javascript"></script>--%>
     <style type="text/css">
         .messagealert {

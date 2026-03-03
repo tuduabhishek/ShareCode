@@ -29,7 +29,7 @@
     <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
     <link href="assets/vendor/venobox/venobox.css" rel="stylesheet" />
     <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" />
+    <%-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet" /> --%>
 
     <link rel="stylesheet" type="text/css" href="styles/sweetalert2.css" />
     <script type="text/javascript" src="scripts/sweetalert2.min.js"></script>
@@ -311,7 +311,7 @@
         <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
 
         <!-- jQuery 3.7 and Bootstrap 5.3 JS (bundle includes Popper) -->
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <%-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> --%>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
         <!-- Vendor JS Files -->
